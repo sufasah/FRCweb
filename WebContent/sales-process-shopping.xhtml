@@ -1,0 +1,104 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:h="http://java.sun.com/jsf/html"
+  xmlns:f="http://java.sun.com/jsf/core"
+  xmlns:ui="http://java.sun.com/jsf/facelets">
+	<h:head>
+		<link rel="stylesheet" type="text/css" href="/FRCweb/pages.css"/>
+		<script src="https://kit.fontawesome.com/60d7967167.js" ></script>
+	</h:head>
+	<h:body style="background-color: #f3f3f3;">
+		#{global.init()}
+		#{sps.init()}
+		<div class="sales_logo" style="background-color: #f3f3f3;">
+			<h:graphicImage library="images" value="/img/frc.jpeg" style="width: 200px;height: 100px;border-radius: 5px;"/>
+		</div>
+		<div class="pagenav">
+			<ul>
+				<li class="navtext navselected">Alışveriş</li>
+				<li class="navtext">Giriş</li>
+				<li class="navtext">Teslimat</li>
+				<li style="background-image: none;" class="navtext">Ödeme</li>
+			</ul>
+		</div>
+		<div class="shopping_container">
+			<h2 class="hot-ticket-header">#{sps.e.baslik}</h2>
+			<div class="saleinf">
+				<h:graphicImage value="#{sps.e.img}" alt="Buraya Resim Gelecek"/>
+				<div class="datetime">
+					<div class="date">
+						<span class="daydate">#{sps.e.gun}</span>
+						<span class="month">#{sps.convertMonth(sps.e.ay)}</span>
+						<span class="year">#{sps.e.yil}</span>
+					</div>
+					<div class="daytime">
+					<span class="day">#{sp.convertDay(event.e.gun,event.e.ay,event.e.yil)}</span>
+					<span class="time">#{sps.e.saat}:#{sps.e.dakika}</span>
+					</div>
+					<span class="location">#{sps.e.konum}</span>
+				</div>
+				<h4>
+					#{sps.e.altbaslik}
+				</h4>
+				<p>
+					#{sps.e.icerik}
+				</p>
+			</div>
+			<div style="margin-top:40px;" class="saleinf2">
+				<h1 class="std-title">ALIŞVERİŞ</h1>
+				<h:panelGrid columns="3" styleClass="shop-table" columnClasses="firsttd,bos,secondtd" >
+						<h:outputText value="Bölüm/Blok:"/>
+						<h:outputText style="width:40%!important;" />
+						<h:outputText value="#{sps.bolum}"/>
+						<h:outputText value="Kategori:"/>
+						<h:outputText style="width:1200px;"/>
+						<h:outputText value="#{sps.kategori}"/>
+						<h:outputText value="Fiyat:"/>
+						<h:outputText style="width:1200px;" />
+						<h:outputText value="#{sps.fiyat}"/>
+				</h:panelGrid>
+				<hr style="margin-left: -10px;width: 102%; border-top: 1px solid black;"/>
+				<h1 class="std-title" style="margin-top:20px;margin-bottom:20px;">Oturma Düzeni</h1>
+				<h:graphicImage value="#{sps.e.duzenimg}" alt="BURADA OTURMA DÃZENÄ° RESMÄ° OLACAK"/>
+				<h:form id="hid">
+					<h:commandButton action="sales-process-login.xhtml"  styleClass="blue-button" value="Devam" />
+					<h:inputHidden value="#{sps.kategori}" />
+					<h:inputHidden value="#{sps.bolum}" />
+					<h:inputHidden value="#{sps.fiyat}" />
+					<h:inputHidden id="time" value="#{sps.sure}"/>
+					<h:inputHidden value="#{sps.etkinlik_id}" />	
+				</h:form>
+				
+			</div>
+		</div>
+		<div class="timeinf">
+			<i style="padding:10px;color:orange" class="fa fa-check fa-4x"></i>
+			<p>
+				Seçtiğin bileti geçici olarak senin için ayırdık!
+				Biletini alman sadece birkaç dakikanı alacak.
+			</p>
+			<div>KALAN SÜRE : <span id="timeinf-time">#{sps.sure}</span></div>
+		</div>
+		<script>
+			var sure=document.getElementById("timeinf-time");
+			var hidtime=document.getElementById("hid:time");
+			setInterval(function(){
+				saatdak=sure.innerHTML.split(":");
+				if(saatdak[1]==0){
+					if(saatdak[0]==0){
+						alert("Süreniz Dolmuştur!");
+						window.location.href="event.xhtml?id=#{sps.etkinlik_id}";
+					}
+					else{
+						saatdak[0]-=1;
+						saatdak[1]=60;
+					}
+				}
+				saatdak[1]-=1;
+				sure.innerHTML=saatdak[0]+":"+saatdak[1];
+				hidtime.value=sure.innerHTML;
+			},1000);
+		</script>
+	</h:body>
+</html>	

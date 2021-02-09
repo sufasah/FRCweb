@@ -1,0 +1,326 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:h="http://java.sun.com/jsf/html"
+  xmlns:f="http://java.sun.com/jsf/core"
+  xmlns:c="http://java.sun.com/jsp/jstl/core"
+  xmlns:ui="http://java.sun.com/jsf/facelets">
+	<h:head>
+		<link href="#{request.contextPath}/pages.css" rel="stylesheet" type="text/css"></link>
+		<script src="https://kit.fontawesome.com/60d7967167.js"  ></script>
+	</h:head>
+	<h:body>
+	#{global.init()}
+	<div class="index_topbot"></div>
+
+		<div id="hpage_nav" class="centered">
+			<div class="container">
+				<ul>
+					<li><h:outputLink value="index.xhtml?faces-redirect=true" class="logo">FRCticket</h:outputLink></li>
+					<li><h:outputLink value="communication.xhtml?faces-redirect=true">İletişim</h:outputLink></li>
+					<li><h:outputLink value="help.xhtml?faces-redirect=true">Yardım</h:outputLink></li>
+					<li><span class="navinfo">#{index.tel}</span></li>
+					<li><span class="navinfo">#{index.mail}</span></li>
+					<li>
+   					<h:form id="src">
+   					<div id="box">
+       					<h:inputText value="#{search.srcInput}" styleClass="search"/>
+       					<div><i onclick="document.getElementById('src:git').click();" class="fa fa-search"></i></div>
+     					<h:commandButton id="git" style="display:none" action="search.xhtml"/>
+   					</div>
+   					</h:form>
+   					</li>
+   					<c:choose> 
+   						<c:when test="#{login.logged}">
+							<h:outputText value="&lt;li onclick=&quot;cikisyap();&quot; style=&quot;float: right;cursor:pointer&quot;&gt;&lt;a &gt;&lt;i class=&quot;fa fa-user&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt; Çıkış&lt;/a&gt;&lt;/li&gt;" escape="false"/>						</c:when>
+						<c:otherwise>
+							<h:outputText value="&lt;li style=&quot;float: right;&quot;&gt;&lt;a href=&quot;sign-up.xhtml?faces-redirect=true&quot;&gt;&lt;i class=&quot;fa fa-user&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt; Kayıt Ol&lt;/a&gt;&lt;/li&gt;" escape="false"/>
+							<h:outputText value="&lt;li style=&quot;float: right;&quot;&gt;&lt;a href=&quot;login.xhtml?faces-redirect=true&quot;&gt;&lt;i class=&quot;fa fa-user&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt; Giriş Yap&lt;/a&gt;&lt;/li&gt;" escape="false"/>
+						</c:otherwise>
+					</c:choose>
+				</ul>
+				
+			</div>
+		</div>
+		<div id="hpage_discover" class="centered">
+			<div class="container">
+				<h:form>
+					
+						<ul>
+							<li>
+								<span><i class="fa fa-eye fa-2x" aria-hidden="true"></i></span>
+	  							<h:selectOneMenu id="hpage_categori" value="#{search.kategori}">
+	  								<f:selectItem itemLabel="Tüm Kategoriler" itemValue="tumktg"/>
+	  								<f:selectItems value="#{index.kategoriList}" var="x" itemValue="#{x}" itemLabel="#{x}"/>
+	    						</h:selectOneMenu>
+							</li>
+							<li>
+								<span><i class="fa fa-calendar-o fa-2x" aria-hidden="true"></i></span>
+	  							<h:selectOneMenu value="#{search.tarih}" id="hpage_tarih" >
+		  							<f:selectItem itemValue="tum" itemLabel="Tüm Tarihler"/>
+		  							<f:selectItem itemValue="bugun" itemLabel="Bugün"/>
+		  							<f:selectItem itemValue="bhafta" itemLabel="Bu Hafta İçerisinde"/>
+		  							<f:selectItem itemValue="o30g" itemLabel="Bu Ay İçerisinde"/>	
+	  							</h:selectOneMenu>
+	
+							</li>
+							<li>
+								<span><i class="fa fa-map-marker fa-2x" aria-hidden="true"></i></span>
+	  							<h:selectOneMenu value="#{search.il}" id="hpage_yer" >
+		  							<f:selectItem itemValue="tum" itemLabel="Tüm Türkiye"/>
+		  							<f:selectItems itemValue="#{x}" itemLabel="#{x}" value="#{index.ilList}" var="x"/>
+	  							</h:selectOneMenu>
+							</li>
+							<li>
+								<h:commandButton id="git" styleClass="blue-button" value="Git" action="search.xhtml"/>
+							</li>
+						</ul>
+					</h:form>
+			</div>
+		</div>
+		<div class="index_body">
+		<div class="sup_container">
+			<h1 style="font-family: TMSans-Bold, Helvetica, Arial, sans-serif;color: #009CDE;width: 220px;margin-bottom: 40px;margin-left:430px;text-align:center;"> Kayıt Ol</h1>
+			<h:form id="signup" >
+				<h:panelGrid styleClass="firsttable" columns="2">
+					<h:outputText value="Ad"/>
+					<h:inputText id="name" value="#{signUp.ad}"/>
+					<h:outputText value="Soyad"/>
+					<h:inputText id="surname" value="#{signUp.soyad}"/>
+					<h:outputText value="Cinsiyet"/>
+					<h:selectOneRadio id="gender" value="#{signUp.cinsiyet}">
+						<f:selectItem itemValue="true" itemLabel="Erkek"/>
+						<f:selectItem itemValue="false" itemLabel="Kadın"/>					
+					</h:selectOneRadio>
+					<h:outputText value="Doğum Tarihi"/>
+					<h:inputText id="birthdate" value="#{signUp.dogumtarih}"/>
+					<h:outputText value="Telefon Numarası"/>
+					<h:inputText id="telephone" value="#{signUp.telefon}"/>
+					<h:outputText value="E-posta"/>
+					<h:inputText id="email" value="#{signUp.eposta}"/>
+					<h:outputText value="E-posta Tekrar"/>
+					<h:inputText id="emaila" value="#{signUp.epostatekrar}"/>
+					<h:outputText value="Şifre"/>
+					<h:inputSecret id="password" value="#{signUp.sifre}"/>
+					<h:outputText value="Şifre Tekrar"/>
+					<h:inputSecret id="passworda" value="#{signUp.sifretekrar}"/>
+					<h:outputText/>
+					
+					<div class="blue-button" style="height: 20px;text-align: center;padding: 10px;" onclick="control();return false;" >Gönder</div>
+					<h:commandButton style="display:none;" type="submit" id="submit" value="Kaydol" action="#{signUp.kaydet}"/>
+				</h:panelGrid>
+				<div id="validate" style="display: none;height:auto ;border: 2px solid red;padding: 20px;margin-top: 20px;color: Red;text-align:center;"></div>
+			</h:form>
+		</div>
+		</div>
+		<div style="height:130px;" class="index_topbot">
+			<div class="index-bot-container">
+				<span class="social-title">BİZİ TAKİP EDİN</span>
+				<div class="social">
+					<a href="#{index.facebook}" style="margin-left:0px;" class="fa fa-facebook-square fa-3x"></a>
+					<a href="#{index.youtube}" class="fa fa-youtube-square fa-3x"></a>
+					<a href="#{index.instagram}" class="fab fa-instagram-square fa-3x"></a>
+					<a href="#{index.twitter}" class="fa fa-twitter-square fa-3x"></a>
+				</div>
+				<span class="rights">©    2020 Bu sitedeki tüm haklar saklıdır. Bu web sitesinin kullanımı, ticari kullanımı engelleyen Kullanım Koşulları'na tabidir. Bu sayfayı geçtiğinizde bu koşulları kabul etmiş sayılırsınız.</span>
+			</div>
+			<h:form id="logout">
+				<h:commandButton id="button" action="communication.xhtml?faces-redirect=true" style="display:none"></h:commandButton>
+				<h:inputHidden id="logoutval" value="#{login.logged}"/>
+			</h:form>
+		</div>
+		<div onclick="fixClick()" class="fix-message">
+			<div onclick="fixContentClick()" class="fix-message-content">
+				<i onclick="fixExit();" class="far fa-window-close fa-2x exit"></i>
+				<div class="message"></div>
+			</div>
+		</div>
+		<script>
+			var ad,soyad,cinsiyet,dogumtarih,tel,eposta,epostatekrar,sifre,sifretekrar;
+			ad=document.getElementById("signup:name");
+			soyad=document.getElementById("signup:surname");
+			cinsiyet=document.getElementById("signup:gender");
+			tel=document.getElementById("signup:telephone");
+			dogumtarih=document.getElementById("signup:birthdate");
+			eposta=document.getElementById("signup:email");
+			epostatekrar=document.getElementById("signup:emaila");
+			sifre=document.getElementById("signup:password");
+			sifretekrar=document.getElementById("signup:passworda");
+			var validate=document.getElementById("validate");
+			var submit=document.getElementById("signup:submit");
+			function control(){
+				var msg="";
+				var hataVar=false;
+				if(ad.value===""){
+					msg+="Ad Boş Bırakılamaz.&lt;br/&gt;";
+					hataVar=true;
+					ad.style.border="2px solid red";
+				}
+				else if(ad.value.length&gt;30){
+					msg+="Ad Maximum 30 Karakter Olmalıdır.&lt;br/&gt;";
+					hataVar=true;
+					ad.style.border="2px solid red";
+				}
+				else{
+					ad.style.border="";
+				}
+				if(soyad.value===""){
+					msg+="Soyad Boş Bırakılamaz.&lt;br/&gt;";
+					hataVar=true;
+					soyad.style.border="2px solid red";
+				}
+				else if(soyad.value.length&gt;30){
+					msg+="Soyad Maximum 30 Karakter Olmalıdır.&lt;br/&gt;";
+					hataVar=true;
+					soyad.style.border="2px solid red";
+				}
+				else{
+					soyad.style.border="";
+				}
+				if(dogumtarih.value===""){
+					msg+="Dogum Tarihi Boş Bırakılamaz.&lt;br/&gt;";
+					hataVar=true;
+					dogumtarih.style.border="2px solid red";
+				}
+				else if(! /^(0?[1-9]|[12][0-9]|3[01])[\.](0?[1-9]|1[012])[\.]\d{4}$/.test(dogumtarih.value)){
+					msg+="Doğum Tarihi dd.mm.yyyy Formatında Olmalıdır.&lt;br/&gt;";
+					hataVar=true;
+					dogumtarih.style.border="2px solid red";
+				}
+				else{
+					dogumtarih.style.border="";
+				}
+				if(sifre.value!==sifretekrar.value){
+					msg+="Şifreler Eşleşmiyor.&lt;br/&gt;";
+					hataVar=true;
+					sifre.style.border="2px solid red";
+					sifretekrar.style.border="2px solid red";
+				}
+				else if(sifre.value===""){
+					msg+="Şifre Boş Bırakılamaz.&lt;br/&gt;";
+					hataVar=true;
+					sifre.style.border="2px solid red";
+				}
+				else if(sifre.value.length&gt;30 || sifre.value.length&lt;6){
+					msg+="Şifre Maximum 6 ile 30 Karakter Arasında Olmalıdır.&lt;br/&gt;";
+					hataVar=true;
+					sifre.style.border="2px solid red";
+				}
+				else{
+					sifre.style.border="";
+				}
+				if(sifretekrar.value===""){
+					msg+="Şifre Tekrar Boş Bırakılamaz.&lt;br/&gt;";
+					hataVar=true;
+					sifretekrar.style.border="2px solid red";
+				}
+				else if(sifre.value===sifretekrar.value){
+					sifretekrar.style.border="";
+				}
+				if(tel.value===""){
+					msg+="Telefon Boş Bırakılamaz.&lt;br/&gt;";
+					hataVar=true;
+					tel.style.border="2px solid red";
+				}
+				else if(tel.value.length!=11 || findfirstnotof(tel.value,"0123456789")){
+					msg+="Telefon 11 Karakter Olmalıdır Ve Sadece Rakamlardan Oluşmalıdır.&lt;br/&gt;";
+					hataVar=true;
+					tel.style.border="2px solid red";
+				}
+				else{
+					tel.style.border="";
+				}
+				if(eposta.value!==epostatekrar.value){
+					msg+="E-Postalar Eşleşmiyor.&lt;br/&gt;";
+					hataVar=true;
+					eposta.style.border="2px solid red";
+					epostatekrar.style.border="2px solid red";
+				}
+				else if(eposta.value===""){
+					msg+="E-Posta Adresi Boş Bırakılamaz.&lt;br/&gt;";
+					hataVar=true;
+					eposta.style.border="2px solid red";
+				}
+				else if(!/^([A-Za-z0-9_\-.])+@([A-Za-z0-9_\-.])+\.([A-Za-z]{2,4})$/.test(eposta.value)){
+					msg+="E-Posta Uygunsuz Formatta.&lt;br/&gt;";
+					hataVar=true;
+					eposta.style.border="2px solid red";
+				}
+				else {
+					eposta.style.border="";
+				}
+				if(epostatekrar.value===""){
+					msg+="E-Posta Tekrar Boş Bırakılamaz.&lt;br/&gt;";
+					hataVar=true;
+					epostatekrar.style.border="2px solid red";
+				}
+				else if(eposta.value===epostatekrar.value){
+					epostatekrar.style.border="";
+				}
+				
+				
+				if(hataVar)
+				{
+					validate.innerHTML=msg;
+					validate.style.display="block";
+				}
+				else
+					submit.click();
+			}
+			var fixcontentclicked=false;
+			var params=getSearchParameters();
+			var fixmessage=document.querySelector(".fix-message");
+			var fixmsg=fixmessage.firstElementChild.lastElementChild;
+			if(params["sonuc"]==="basarili"){
+				fixmsg.innerHTML="Kullanıcı Kayıt İşlemi Başarıyla Gerçekleşti.";
+				fixmessage.style.display="block";
+			}
+			else if(params["sonuc"]==="basarisiz"){
+				fixmsg.innerHTML="Kullanıcı Kayıt İşlemi Başarısız. Bu Kullanıcı Zaten Sistemde Kayıtlı.";
+				fixmessage.style.display="block";	
+			}
+			else if(params["sonuc"]==="uygunsuz"){
+				fixmsg.innerHTML="Server Tarafında Uygunsuz Girdiler Saptandı. Lütfen Uygun Girdiler Giriniz Yada Daha Sonra Tekrar Deneyiniz.";
+				fixmessage.style.display="block";
+			}
+			else if(params["sonuc"]==="error"){
+				fixmsg.innerHTML="Sistemsel Bir Sorun Bulunmaktadır.Lütfen Daha Sonra Tekrar Deneyiniz.";
+				fixmessage.style.display="block";
+			}
+			function fixContentClick(){
+				fixcontentclicked=true;
+			}
+			function fixClick(){
+				if(fixcontentclicked)
+					fixcontentclicked=false;
+				else
+					fixExit();
+			}
+			function fixExit(){
+				var fixmessage=document.getElementsByClassName("fix-message")[0];
+				fixmessage.style.display="none";
+			}
+			
+			function getSearchParameters() {
+			      var prmstr = window.location.search.substr(1);
+			      return prmstr != null &amp;&amp; prmstr != "" ? transformToAssocArray(prmstr) : {};
+			}
+			function transformToAssocArray( prmstr ) {
+			    var params = {};
+			    var prmarr = prmstr.split("&amp;");
+			    for ( var i = 0; i &lt; prmarr.length; i++) {
+			        var tmparr = prmarr[i].split("=");
+			        params[tmparr[0]] = tmparr[1];
+			    }
+			    return params;
+			}
+			function findfirstnotof(search,chars){
+				for(var i=0;i&lt;search.length;i++)
+					if(chars.search(search[i])==-1)
+						return true;
+				return false;
+			}
+		</script>
+		<script src="/FRCweb/javascript.js"></script>	
+	</h:body>
+</html>

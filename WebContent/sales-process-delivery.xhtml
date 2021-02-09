@@ -1,0 +1,251 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:h="http://java.sun.com/jsf/html"
+  xmlns:f="http://java.sun.com/jsf/core">
+	<h:head>
+		<link rel="stylesheet" type="text/css" href="/FRCweb/pages.css"/>
+		<script src="https://kit.fontawesome.com/60d7967167.js" ></script>
+	</h:head>
+	<h:body style="background-color: #f3f3f3;">
+		#{global.init()}
+		#{sps.init()}
+		<div class="sales_logo" style="background-color: #f3f3f3;">
+			<h:graphicImage library="images" value="/img/frc.jpeg" style="width: 200px;height: 100px;border-radius: 5px;"/>
+		</div>
+		<div class="pagenav">
+			<ul>
+				<li class="navtext ">Alışveriş</li>
+				<li class="navtext navbeforeselected">Giriş</li>
+				<li class="navtext navselected">Teslimat</li>
+				<li style="background-image: none;" class="navtext">Ödeme</li>
+			</ul>
+		</div>
+		<div class="shopping_container">
+			<h2 class="hot-ticket-header">#{sps.e.baslik}</h2>
+			<div class="saleinf">
+				<h:graphicImage value="#{sps.e.img}" alt="Buraya Resim Gelecek"/>
+				<div class="datetime">
+					<div class="date">
+						<span class="daydate">#{sps.e.gun}</span>
+						<span class="month">#{sps.convertMonth(sps.e.ay)}</span>
+						<span class="year">#{sps.e.yil}</span>
+					</div>
+					<div class="daytime">
+					<span class="day">#{sp.convertDay(event.e.gun,event.e.ay,event.e.yil)}</span>
+					<span class="time">#{sps.e.saat}:#{sps.e.dakika}</span>
+					</div>
+					<span class="location">#{sps.e.konum}</span>
+				</div>
+				<h4>
+					#{sps.e.altbaslik}
+				</h4>
+				<p>
+					#{sps.e.icerik}
+				</p>
+			</div>
+			<div style="margin-top:40px;" class="saleinf2">
+				<h1 class="hot-ticket-header">Fatura Adresi Oluşturun</h1>
+				<h:form id="fatura" method="post">
+					<h:panelGrid styleClass="sales-login-table" columnClasses="firsttd,secondtd" columns="2">
+						<h:outputText value="Ad"/>
+						<h:inputText id="name" value="#{sps.fad}" />
+
+						<h:outputText value="Soyad"/>
+						<h:inputText id="surname" value="#{sps.fsoyad}"/>
+
+						<h:outputText value="Adres Sütun 1"/>
+						<h:inputText id="address" value="#{sps.fadres1}"/>
+
+						<h:outputText value="Adres Sütun 2"/>
+						<h:inputText id="address2" value="#{sps.fadres2}"/>
+
+						<h:outputText value="İl"/>
+						<h:inputText id="city" value="#{sps.fil}"/>
+
+						<h:outputText  value="İlçe"/>
+						<h:inputText id="district" value="#{sps.filce}"/>
+
+						<h:outputText value="Posta Kodu" />
+						<h:inputText id="postal" value="#{sps.fposta}"/>
+
+						<h:outputText value="Telefon" />
+						<h:inputText id="telephone" value="#{sps.ftelefon}"/>
+
+						<h:outputText/>
+
+						<h:commandButton id="submit" style="display:none;" styleClass="blue-button" type="submit" action="sales-process-payment.xhtml" value="Devam"/>	
+						</h:panelGrid>
+						<h:inputHidden value="#{sps.bolum}"/>
+						<h:inputHidden value="#{sps.kategori}"/>
+						<h:inputHidden value="#{sps.fiyat}"/>
+						<h:inputHidden id="time" value="#{sps.sure}"/>
+						<h:inputHidden value="#{sps.etkinlik_id}"/>
+						<h:inputHidden value="#{sps.ad}"/>
+						<h:inputHidden value="#{sps.soyad}"/>
+						<h:inputHidden value="#{sps.email}"/>
+						<h:inputHidden value="#{sps.telefon}"/>
+						<h:inputHidden value="#{sps.uyegirisli}"/>
+					</h:form>
+					<button class="blue-button" onclick="control();return false;">Devam</button>
+					<div id="validate" style="display: none;height:auto ;border: 2px solid red;padding: 20px;margin-top: 20px;color: Red;text-align:center;"></div>
+			</div>
+		</div>
+		<div class="timeinf">
+			<i style="padding:10px;color:orange" class="fa fa-check fa-4x"></i>
+			<p>
+				Seçtiğin bileti geçici olarak senin için ayırdık!
+				Biletini alman sadece birkaç dakikanı alacak.
+			</p>
+			<div>KALAN SÜRE : <span id="timeinf-time">#{sps.sure}</span></div>
+		</div>
+		<script>
+			var ad,soyad,tel,adres,adres2,il,ilce,postakod;
+			ad=document.getElementById("fatura:name");
+			soyad=document.getElementById("fatura:surname");
+			adres=document.getElementById("fatura:address");
+			adres2=document.getElementById("fatura:address2");
+			il=document.getElementById("fatura:city");
+			ilce=document.getElementById("fatura:district");
+			postakod=document.getElementById("fatura:postal");
+			tel=document.getElementById("fatura:telephone");
+			var hidtime=document.getElementById("fatura:time");
+			var validate=document.getElementById("validate");
+			var submit=document.getElementById("fatura:submit");
+			var sonuc="#{sps.sonuc}";
+			function control(){
+				var msg="";
+				var hataVar=false;
+				if(ad.value===""){
+					msg+="Ad Boş Bırakılamaz.&lt;br/&gt;";
+					hataVar=true;
+					ad.style.border="2px solid red";
+				}
+				else if(ad.value.length&gt;30){
+					msg+="Ad Maximum 30 Karakter Olmalıdır.&lt;br/&gt;";
+					hataVar=true;
+					ad.style.border="2px solid red";
+				}
+				else{
+					ad.style.border="";
+				}
+				if(soyad.value===""){
+					msg+="Soyad Boş Bırakılamaz.&lt;br/&gt;";
+					hataVar=true;
+					soyad.style.border="2px solid red";
+				}
+				else if(soyad.value.length&gt;30){
+					msg+="Soyad Maximum 30 Karakter Olmalıdır.&lt;br/&gt;";
+					hataVar=true;
+					soyad.style.border="2px solid red";
+				}
+				else{
+					soyad.style.border="";
+				}
+				if(adres.value==="" &amp;&amp; adres2.value===""){
+					msg+="Adres Sütunlarından Birisi Doldurulmak Zorundadır.&lt;br/&gt;";
+					hataVar=true;
+					adres.style.border="2px solid red";
+					adres2.style.border="2px solid red";
+				}
+				else if(adres.value.length &gt; 100 || adres2.value.length &gt; 100){
+					msg+="Adres Sütunları Maximum 100 Karakterden Oluşabilir.&lt;br/&gt;";
+					hataVar=true;
+					adres.style.border="2px solid red";
+					adres2.style.border="2px solid red";
+				}
+				else{
+					adres.style.border="";
+					adres2.style.border="";
+				}
+				if(il.value==="" || il.value.length &gt; 60){
+					msg+="İl Boş Bırakılamaz ve Maximum 60 Karakterden Oluşmalıdır.&lt;br/&gt;";
+					hataVar=true;
+					il.style.border="2px solid red";
+				}
+				else
+					il.style.border="";
+				if(ilce.value==="" || ilce.value.length &gt; 60){
+					msg+="İlçe Boş Bırakılamaz ve Maximum 60 Karakterden Oluşmalıdır.&lt;br/&gt;";
+					hataVar=true;
+					ilce.style.border="2px solid red";
+				}
+				else
+					ilce.style.border="";
+				if(postakod.value===""){
+					msg+="Posta Kodu Boş Bırakılamaz.&lt;br/&gt;";
+					hataVar=true;
+					postakod.style.border="2px solid red";
+				}
+				else if(postakod.value.length &gt; 10 || findfirstnotof(postakod.value,"0123456789")){
+					msg+="Posta Kodu Maximum 10 Karakterden Ve Sadece Rakamlardan Oluşmalıdır.&lt;br/&gt;";
+					hataVar=true;
+					postakod.style.border="2px solid red";
+				}
+				else{
+					postakod.style.border="";
+				}
+				if(tel.value===""){
+					msg+="Telefon Boş Bırakılamaz.&lt;br/&gt;";
+					hataVar=true;
+					tel.style.border="2px solid red";
+				}
+				else if(tel.value.length!=11 || findfirstnotof(tel.value,"0123456789")){
+					msg+="Telefon 11 Karakter Olmalıdır Ve Sadece Rakamlardan Oluşmalıdır.&lt;br/&gt;";
+					hataVar=true;
+					tel.style.border="2px solid red";
+				}
+				else{
+					tel.style.border="";
+				}
+				if(hataVar)
+				{
+					validate.innerHTML=msg;
+					validate.style.display="block";
+					window.scroll({top: 9999,left: 9999,behavior: 'smooth'});
+				}
+				else
+					submit.click();
+			}
+			if(sonuc==="noresultset"){
+				validate.innerHTML="Giriş Yapılan Kullanıcı Bulunamadı.";
+			}
+			else if(sonuc==="sqlerror"){
+				validate.innerHTML="Sistemsel Bir Problem İle Karşılaşıldı, Daha Sonra Tekrar Deneyiniz.";							
+			}
+			else if(sonuc==="improperinput"){
+				validate.innerHTML="Uygunsuz Olan Girdiye Rastlandı. Lütfen Bilgileri Doğru Doldurduğunuzdan Emin Olunuz.";				
+			}
+			if(sonuc!==""){
+				validate.style.display="block";
+				window.scroll({top: 9999,left: 9999,behavior: 'smooth'});
+			}
+			
+			var sure=document.getElementById("timeinf-time");
+			var hidtime1=document.getElementById("uyeli:time");
+			var hidtime2=document.getElementById("uyesiz:time");
+			setInterval(function(){
+				saatdak=sure.innerHTML.split(":");
+				if(saatdak[1]==0){
+					if(saatdak[0]==0){
+						alert("Süreniz Dolmuştur!");
+						window.location.href="event.xhtml?id=#{sps.etkinlik_id}";
+					}
+					else{
+						saatdak[0]-=1;
+						saatdak[1]=60;
+					}
+				}
+				saatdak[1]-=1;
+				sure.innerHTML=saatdak[0]+":"+saatdak[1];
+				hidtime.value=sure.innerHTML;
+			},1000);
+			function findfirstnotof(search,chars){
+				for(var i=0;i&lt;search.length;i++)
+					if(chars.search(search[i])==-1)
+						return true;
+				return false;
+			}
+		</script>
+	</h:body>
+</html>	

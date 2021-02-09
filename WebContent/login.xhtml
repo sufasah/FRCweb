@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:h="http://java.sun.com/jsf/html"
+  xmlns:f="http://java.sun.com/jsf/core"
+  xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+	<h:head>
+		<link rel="stylesheet" type="text/css" href="/FRCweb/pages.css"/>
+	</h:head>
+	<h:body style="overflow:hidden;">
+		#{global.init()}
+		<div class="login-body">
+			<div id="login" class="login">
+				<h:form id="log" styleClass="login-form" >
+					<h:inputText value="#{login.email}" styleClass="inputs loginfonts" maxlength="20" a:placeholder="E-Mail" autocomplete="off" />
+					<h:inputSecret value="#{login.sifre}" styleClass="inputs loginfonts"  a:placeholder="Şifre" maxlength="20"  />
+					<h:outputLink styleClass="loginfonts" value="forgot-and-activation.xhtml"  style="margin-left: -30px;">Şifremi Unuttum</h:outputLink>
+					<h:outputLink styleClass="loginfonts" value="forgot-and-activation.xhtml" style="margin-left: 70px;">Aktivasyon Kodu Gönder</h:outputLink>
+					<h:commandButton id="submit" action="#{login.giris}" styleClass="loginfonts logbut" type="submit" value="Giriş Yap"/>
+				</h:form>
+			</div>
+		</div>
+		<script>
+			var params=getSearchParameters();
+			var login=document.getElementById("login");
+			var submit=document.getElementById("log:submit");
+			if(params["giris"]==="basarili"){
+				setTimeout(function(){login.style.backgroundColor="rgb(0,255,100,0.6)";},200);
+				setTimeout(function(){window.location.href="index.xhtml";},2200);
+			}
+			else if(params["giris"]==="basarisiz"){
+				setTimeout(function(){login.style.backgroundColor="rgb(255,100,0,0.6)";},200);
+			}
+			function getSearchParameters() {
+			      var prmstr = window.location.search.substr(1);
+			      return prmstr != null &amp;&amp; prmstr != "" ? transformToAssocArray(prmstr) : {};
+			}
+			function transformToAssocArray( prmstr ) {
+			    var params = {};
+			    var prmarr = prmstr.split("&amp;");
+			    for ( var i = 0; i &lt; prmarr.length; i++) {
+			        var tmparr = prmarr[i].split("=");
+			        params[tmparr[0]] = tmparr[1];
+			    }
+			    return params;
+			}
+		</script>
+	</h:body>
+</html>

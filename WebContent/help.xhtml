@@ -1,0 +1,147 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:h="http://java.sun.com/jsf/html"
+  xmlns:f="http://java.sun.com/jsf/core"
+  xmlns:c="http://java.sun.com/jsp/jstl/core"
+  xmlns:ui="http://java.sun.com/jsf/facelets">
+	<h:head>
+		<link type="text/css" rel="stylesheet" href="/FRCweb/pages.css"/>
+		<script src="https://kit.fontawesome.com/60d7967167.js"  ></script>
+	</h:head>
+	<h:body>
+		#{global.init()}
+		<div class="index_topbot"></div>
+
+		<div id="hpage_nav" class="centered">
+			<div class="container">
+				<ul>
+					<li><h:outputLink value="index.xhtml?faces-redirect=true" class="logo">FRCticket</h:outputLink></li>
+					<li><h:outputLink value="communication.xhtml?faces-redirect=true">İletişim</h:outputLink></li>
+					<li><h:outputLink value="help.xhtml?faces-redirect=true">Yardım</h:outputLink></li>
+					<li><span class="navinfo">#{index.tel}</span></li>
+					<li><span class="navinfo">#{index.mail}</span></li>
+					<li>
+   					<h:form id="src">
+   					<div id="box">
+       					<h:inputText value="#{search.srcInput}" styleClass="search"/>
+       					<div><i onclick="document.getElementById('src:git').click();" class="fa fa-search"></i></div>
+     					<h:commandButton id="git" style="display:none" action="search.xhtml"/>
+   					</div>
+   					</h:form>
+   					</li>
+   					<c:choose> 
+   						<c:when test="#{login.logged}">
+							<h:outputText value="&lt;li onclick=&quot;cikisyap();&quot; style=&quot;float: right;cursor:pointer&quot;&gt;&lt;a &gt;&lt;i class=&quot;fa fa-user&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt; Çıkış&lt;/a&gt;&lt;/li&gt;" escape="false"/>
+						</c:when>
+						<c:otherwise>
+							<h:outputText value="&lt;li style=&quot;float: right;&quot;&gt;&lt;a href=&quot;sign-up.xhtml?faces-redirect=true&quot;&gt;&lt;i class=&quot;fa fa-user&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt; Kayıt Ol&lt;/a&gt;&lt;/li&gt;" escape="false"/>
+							<h:outputText value="&lt;li style=&quot;float: right;&quot;&gt;&lt;a href=&quot;login.xhtml?faces-redirect=true&quot;&gt;&lt;i class=&quot;fa fa-user&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt; Giriş Yap&lt;/a&gt;&lt;/li&gt;" escape="false"/>
+						</c:otherwise>
+					</c:choose>
+				</ul>
+				
+			</div>
+		</div>
+		<div id="hpage_discover" class="centered">
+			<div class="container">
+				<h:form>
+					
+						<ul>
+							<li>
+								<span><i class="fa fa-eye fa-2x" aria-hidden="true"></i></span>
+	  							<h:selectOneMenu id="hpage_categori" value="#{search.kategori}">
+	  								<f:selectItem itemLabel="Tüm Kategoriler" itemValue="tumktg"/>
+	  								<f:selectItems value="#{index.kategoriList}" var="x" itemValue="#{x}" itemLabel="#{x}"/>
+	    						</h:selectOneMenu>
+							</li>
+							<li>
+								<span><i class="fa fa-calendar-o fa-2x" aria-hidden="true"></i></span>
+	  							<h:selectOneMenu value="#{search.tarih}" id="hpage_tarih" >
+		  							<f:selectItem itemValue="tum" itemLabel="Tüm Tarihler"/>
+		  							<f:selectItem itemValue="bugun" itemLabel="Bugün"/>
+		  							<f:selectItem itemValue="bhafta" itemLabel="Bu Hafta İçerisinde"/>
+		  							<f:selectItem itemValue="o30g" itemLabel="Bu Ay İçerisinde"/>	
+	  							</h:selectOneMenu>
+	
+							</li>
+							<li>
+								<span><i class="fa fa-map-marker fa-2x" aria-hidden="true"></i></span>
+	  							<h:selectOneMenu value="#{search.il}" id="hpage_yer" >
+		  							<f:selectItem itemValue="tum" itemLabel="Tüm Türkiye"/>
+		  							<f:selectItems itemValue="#{x}" itemLabel="#{x}" value="#{index.ilList}" var="x"/>
+	  							</h:selectOneMenu>
+							</li>
+							<li>
+								<h:commandButton id="git" styleClass="blue-button" value="Git" action="search.xhtml"/>
+							</li>
+						</ul>
+					</h:form>
+			</div>
+		</div>
+		<div class="index_body">
+		<div class="help_container">
+			<h3 class="std-title">Yardım Konuları</h3>
+			<hr/>
+			<ui:repeat value="#{help.yardimList}" var="x">
+				<div onclick="helpClick(this.id,this.firstElementChild.nextElementSibling.innerHTML);return false;" id="id#{x.id}" class="aboutdiv">
+					<i style="display: block;margin-bottom: 10px;" class="fas #{x.icon} fa-8x"></i>
+					<span style="width: 100%;word-break: break-all;">#{x.baslik}</span>
+					<hr style="border-top: 1px groove black;"/>
+				</div>
+			</ui:repeat>				
+
+
+			<hr style="margin-top:40px;"/>
+			<h3 id="ssstitle" style="word-break: break-all;" class="std-title"></h3>
+			<div class="faq_div">
+				<ui:repeat var="y" value="#{help.yardimList}">
+					<ul id="helpid#{y.id}">
+						<ui:repeat value="#{y.sssList}" var="x">
+							<h:outputLink class="deletea" value="faq-content.xhtml?faces-redirect=true&amp;id=#{x[0]}"><li>#{x[1]}</li></h:outputLink>
+						</ui:repeat>
+					</ul>
+				</ui:repeat>
+			</div>
+		</div>
+		</div>
+		<div style="height:130px;" class="index_topbot">
+			<div class="index-bot-container">
+				<span class="social-title">BİZİ TAKİP EDİN</span>
+				<div class="social">
+					<a href="#{index.facebook}" style="margin-left:0px;" class="fa fa-facebook-square fa-3x"></a>
+					<a href="#{index.youtube}" class="fa fa-youtube-square fa-3x"></a>
+					<a href="#{index.instagram}" class="fab fa-instagram-square fa-3x"></a>
+					<a href="#{index.twitter}" class="fa fa-twitter-square fa-3x"></a>
+				</div>
+				<span class="rights">©    2020 Bu sitedeki tüm haklar saklıdır. Bu web sitesinin kullanımı, ticari kullanımı engelleyen Kullanım Koşulları'na tabidir. Bu sayfayı geçtiğinizde bu koşulları kabul etmiş sayılırsınız.</span>
+			</div>
+			<h:form id="logout">
+				<h:commandButton id="button" action="communication.xhtml?faces-redirect=true" style="display:none"></h:commandButton>
+				<h:inputHidden id="logoutval" value="#{login.logged}"/>
+			</h:form>
+		</div>
+		<script>
+		var choosenul=null;
+		function helpClick(id,val){
+			var title=document.getElementById("ssstitle");
+			var faqdiv=document.getElementsByClassName("faq_div")[0];
+			id=id.substr(2);
+			if(choosenul!==null)
+				choosenul.style.display="none";
+			choosenul=document.querySelector(".faq_div ul[id='helpid"+id+"']");
+			if(choosenul.firstElementChild===null){
+				title.innerHTML=val+" İçin Herhangi Bir Soru Bulunamadı.";
+				faqdiv.style.display="none";
+			}else{				
+				choosenul.style.display="block";
+				title.innerHTML="Sıkça Sorulan Sorular - "+val;
+				faqdiv.style.display="block";
+			}
+			title.style.display="block";
+			window.scroll({top: title.offsetTop-10,left: title.offsetLeft-title.offsetWidth/2,behavior: 'smooth'});
+		}
+		</script>
+		<script src="/FRCweb/javascript.js"></script>
+	</h:body>
+</html>

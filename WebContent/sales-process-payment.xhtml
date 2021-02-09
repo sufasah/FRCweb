@@ -1,0 +1,280 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:h="http://java.sun.com/jsf/html"
+  xmlns:f="http://java.sun.com/jsf/core">
+	<h:head>
+		<link rel="stylesheet" type="text/css" href="/FRCweb/pages.css"/>
+		<script src="https://kit.fontawesome.com/60d7967167.js" ></script>
+	</h:head>
+	<h:body style="background-color: #f3f3f3;">
+		#{global.init()}
+		#{sps.init()}
+		<div class="sales_logo" style="background-color: #f3f3f3;">
+			<h:graphicImage library="images" value="/img/frc.jpeg" style="width: 200px;height: 100px;border-radius: 5px;"/>
+		</div>
+		<div class="pagenav">
+			<ul>
+				<li class="navtext ">Alışveriş</li>
+				<li class="navtext ">Giriş</li>
+				<li class="navtext navbeforeselected">Teslimat</li>
+				<li style="background-image: none;background-color:rgb(0,162,232);" class="navtext">Ödeme</li>
+			</ul>
+		</div>
+		<div class="shopping_container">
+			<h2 class="hot-ticket-header">#{sps.e.baslik}</h2>
+			<div class="saleinf">
+				<h:graphicImage value="#{sps.e.img}" alt="Buraya Resim Gelecek"/>
+				<div class="datetime">
+					<div class="date">
+						<span class="daydate">#{sps.e.gun}</span>
+						<span class="month">#{sps.convertMonth(sps.e.ay)}</span>
+						<span class="year">#{sps.e.yil}</span>
+					</div>
+					<div class="daytime">
+					<span class="day">#{sp.convertDay(event.e.gun,event.e.ay,event.e.yil)}</span>
+					<span class="time">#{sps.e.saat}:#{sps.e.dakika}</span>
+					</div>
+					<span class="location">#{sps.e.konum}</span>
+				</div>
+				<h4>
+					#{sps.e.altbaslik}
+				</h4>
+				<p>
+					#{sps.e.icerik}
+				</p>
+			</div>
+			<div style="margin-top:40px;" class="saleinf2">
+				<h1 class="hot-ticket-header">Ödeme Yapınız</h1>
+					<h:form id="odeme" method="post">
+				<h:panelGrid styleClass="sales-login-table" columnClasses="firsttd,secondtd" columns="2">
+							<h:outputText value="Kupon" />
+							<h:panelGroup>
+							<h:inputText id="coupon" value="#{sps.kupon}"/>
+							<h:commandButton value="Kuponla Öde" id="kuponsubmit" styleClass="blue-button" style="display:none;margin-left:20px;" action="#{sps.kuponlaOde}"></h:commandButton>
+							<button class="blue-button" style="display:inline-block;	margin-left:20px;" onclick="kuponOde();return false;">Kuponla Öde</button>
+							</h:panelGroup>
+	
+							<h:outputText value="Kart Üzerindeki İsim" />
+							<h:inputText id="name" value="#{sps.kisim}"/>
+
+							<h:outputText value="Kredi Kartı No" />
+							<h:inputText id="number" value="#{sps.kredino}"/>
+
+							<h:outputText value="Taksit Seçenekleri" />
+							<h:selectOneMenu id="installment" value="#{sps.taksit}">
+								<f:selectItem itemLabel="Tek Çekim" itemValue="tekcek"/>
+								<f:selectItem itemLabel="2 Taksit" itemValue="ikitak"/>
+								<f:selectItem itemLabel="4 Taksit" itemValue="dorttak"/>
+							</h:selectOneMenu>
+
+							<h:outputText value="Son Kullanma Tarihi" />
+							<h:panelGroup>
+							<h:selectOneMenu id="expiration-month" value="#{sps.sktay}" >
+								<f:selectItem itemLabel="01" itemValue="01"/>
+								<f:selectItem itemLabel="02" itemValue="02"/>
+								<f:selectItem itemLabel="03" itemValue="03"/>
+								<f:selectItem itemLabel="04" itemValue="04"/>
+								<f:selectItem itemLabel="05" itemValue="05"/>
+								<f:selectItem itemLabel="06" itemValue="06"/>
+								<f:selectItem itemLabel="07" itemValue="07"/>
+								<f:selectItem itemLabel="08" itemValue="08"/>
+								<f:selectItem itemLabel="09" itemValue="09"/>
+								<f:selectItem itemLabel="10" itemValue="10"/>
+								<f:selectItem itemLabel="11" itemValue="11"/>
+								<f:selectItem itemLabel="12" itemValue="12"/>
+								<f:selectItem itemLabel="13" itemValue="13"/>
+								<f:selectItem itemLabel="14" itemValue="14"/>
+								<f:selectItem itemLabel="15" itemValue="15"/>
+								<f:selectItem itemLabel="16" itemValue="16"/>
+								<f:selectItem itemLabel="17" itemValue="17"/>
+								<f:selectItem itemLabel="18" itemValue="18"/>
+								<f:selectItem itemLabel="19" itemValue="19"/>
+								<f:selectItem itemLabel="20" itemValue="20"/>
+								<f:selectItem itemLabel="21" itemValue="21"/>
+								<f:selectItem itemLabel="22" itemValue="22"/>
+								<f:selectItem itemLabel="23" itemValue="23"/>
+								<f:selectItem itemLabel="24" itemValue="24"/>
+								<f:selectItem itemLabel="25" itemValue="25"/>
+								<f:selectItem itemLabel="26" itemValue="26"/>
+								<f:selectItem itemLabel="27" itemValue="27"/>
+								<f:selectItem itemLabel="28" itemValue="28"/>
+								<f:selectItem itemLabel="29" itemValue="29"/>
+								<f:selectItem itemLabel="30" itemValue="30"/>
+								<f:selectItem itemLabel="31" itemValue="31"/>
+							</h:selectOneMenu>
+							<h:selectOneMenu style="margin-left:20px;" id="expiration-year" value="#{sps.sktyil}">
+								<f:selectItem itemLabel="2020" itemValue="2020"/>
+								<f:selectItem itemLabel="2021" itemValue="2021"/>
+								<f:selectItem itemLabel="2022" itemValue="2022"/>
+								<f:selectItem itemLabel="2023" itemValue="2023"/>
+								<f:selectItem itemLabel="2024" itemValue="2024"/>
+								<f:selectItem itemLabel="2025" itemValue="2025"/>
+								<f:selectItem itemLabel="2026" itemValue="2026"/>
+								<f:selectItem itemLabel="2027" itemValue="2027"/>
+								<f:selectItem itemLabel="2028" itemValue="2028"/>
+								<f:selectItem itemLabel="2029" itemValue="2029"/>
+								<f:selectItem itemLabel="2030" itemValue="2030"/>
+								<f:selectItem itemLabel="2031" itemValue="2031"/>
+							</h:selectOneMenu>
+							</h:panelGroup>
+							
+							<h:outputText value="CVV" />
+							<h:inputText id="cvv" value="#{sps.cvv}"/>
+							<h:outputText />
+					</h:panelGrid>
+						<input type="checkbox" id="sozlesme"/>
+						<span style="margin-top:2px;">Satış Sözleşmesini Okudum ve Kabul Ediyorum.</span>
+						<h:commandButton action="#{sps.satisTamamlandi}" id="submit" class="blue-button" style="width:200px;display:none;margin-left: 400px;" value="Ödemeyi Gerçekleştir"></h:commandButton>
+						<h:inputHidden id="sure" value="#{sps.sure}"/>
+						<h:inputHidden value="#{sps.bolum}"/>
+						<h:inputHidden value="#{sps.kategori}"/>
+						<h:inputHidden value="#{sps.fiyat}"/>
+						<h:inputHidden value="#{sps.etkinlik_id}"/>
+						<h:inputHidden value="#{sps.ad}"/>
+						<h:inputHidden value="#{sps.soyad}"/>
+						<h:inputHidden value="#{sps.email}"/>
+						<h:inputHidden value="#{sps.telefon}"/>
+						<h:inputHidden value="#{sps.fad}"/>
+						<h:inputHidden value="#{sps.fsoyad}"/>
+						<h:inputHidden value="#{sps.fadres1}"/>
+						<h:inputHidden value="#{sps.fadres2}"/>
+						<h:inputHidden value="#{sps.fil}"/>
+						<h:inputHidden value="#{sps.filce}"/>
+						<h:inputHidden value="#{sps.fposta}"/>
+						<h:inputHidden value="#{sps.uyegirisli}"/>
+						<h:inputHidden value="#{sps.ftelefon}"/>
+					</h:form>
+					<button onclick="control();return false;" class="blue-button" style="width:200px;margin-left: 800px;">Ödemeyi Gerçekleştir</button>
+					<div id="validate" style="display: none;height:auto ;border: 2px solid red;padding: 20px;margin-top: 20px;color: Red;text-align:center;"></div>
+			</div>
+		</div>
+		<div class="timeinf">
+			<i style="padding:10px;color:orange" class="fa fa-check fa-4x"></i>
+			<p>
+				Seçtiğin bileti geçici olarak senin için ayırdık!
+				Biletini alman sadece birkaç dakikanı alacak.
+			</p>
+			<div>KALAN SÜRE : <span id="timeinf-time">#{sps.sure}</span></div>
+		</div>
+		<script>
+			var isim,no,taksit,sktay,sktyil,cvv,okudum;
+			isim=document.getElementById("odeme:name");
+			no=document.getElementById("odeme:number");
+			taksit=document.getElementById("odeme:installment");
+			sktay=document.getElementById("odeme:expiration-month");
+			sktyil=document.getElementById("odeme:expiration-year");
+			cvv=document.getElementById("odeme:cvv");
+			okudum=document.getElementById("sozlesme");
+			var hidsure=document.getElementById("odeme:sure");
+			var validate=document.getElementById("validate");
+			var submit=document.getElementById("odeme:submit");
+			var sonuc="#{sps.sonuc}";
+			function kuponOde(){
+				var hataVar=false;
+				var msg="";
+				if(okudum.checked===false){
+					msg+="Lütfen Satış Sözleşmesini Kabul Ettiğinize Dair Seçeneği İşaretleyiniz.&lt;br/&gt;";
+					hataVar=true;			
+				}
+				if(hataVar)
+				{
+					validate.innerHTML=msg;
+					validate.style.display="block";
+					window.scroll({top: 9999,left: 9999,behavior: 'smooth'});
+				}
+				else
+					document.getElementById("odeme:kuponsubmit").click();
+			}
+			function control(){
+				var msg="";
+				var hataVar=false;
+				if(isim.value===""){
+					msg+="İsim Boş Bırakılamaz.&lt;br/&gt;";
+					hataVar=true;
+					isim.style.border="2px solid red";
+				}
+				else if(isim.value.length&gt;30){
+					msg+="İsim Maximum 30 Karakter Olmalıdır.&lt;br/&gt;";
+					hataVar=true;
+					isim.style.border="2px solid red";
+				}
+				else{
+					isim.style.border="";
+				}
+				if(no.value==="" || no.value.length !== 16 || findfirstnotof(no.value,"0123456789")){
+					msg+="Kredi Kartı Numarası 16 Haneli Rakamlardan Oluşmalı ve Boş Bırakılmamalıdır.&lt;br/&gt;";
+					hataVar=true;
+					no.style.border="2px solid red";
+				}
+				else
+					no.style.border="";
+				if(cvv.value==="" || cvv.value.length!==3 || findfirstnotof(cvv.value,"0123456789") ){
+					msg+="Cvv 3 Haneli Rakamlardan Oluşmalı ve Boş Bırakılmamalıdır.&lt;br/&gt;";
+					hataVar=true;
+					cvv.style.border="2px solid red";					
+				}
+				else
+					cvv.style.border="";
+				if(okudum.checked===false){
+					msg+="Lütfen Satış Sözleşmesini Kabul Ettiğinize Dair Seçeneği İşaretleyiniz.&lt;br/&gt;";
+					hataVar=true;			
+				}
+				if(hataVar)
+				{
+					validate.innerHTML=msg;
+					validate.style.display="block";
+					window.scroll({top: 9999,left: 9999,behavior: 'smooth'});
+				}
+				else
+					submit.click();
+			}
+			if(sonuc==="kuponbasarili"){
+				validate.innerHTML="Kuponla Satın Alma İşlemi Başarıyla Gerçekleşti.";
+				setTimeout(function(){window.location.href="index.xhtml"},2000);
+			}
+			else if(sonuc==="sqlerror"){
+				validate.innerHTML="Sistemsel Bir Problem İle Karşılaşıldı, Daha Sonra Tekrar Deneyiniz.";							
+			}
+			else if(sonuc==="kuponbasarisiz"){
+				validate.innerHTML="Girilen Kupon Geçersizdir.";				
+			}
+			else if(sonuc==="satisbasarili"){
+				validate.innerHTML="Satış İşlemi Başarıyla Gerçekleştirildi.";
+				setTimeout(function(){window.location.href="index.xhtml"},2000);
+			}
+			else if(sonuc==="satisbasarisiz"){
+				validate.innerHTML="Satış İşlemi Gerçekleştirilemedi.";				
+			}
+			
+			if(sonuc!==""){
+				validate.style.display="block";
+				window.scroll({top: 9999,left: 9999,behavior: 'smooth'});
+			}
+			
+			var sure=document.getElementById("timeinf-time");
+			setInterval(function(){
+				saatdak=sure.innerHTML.split(":");
+				if(saatdak[1]==0){
+					if(saatdak[0]==0){
+						alert("Süreniz Dolmuştur!");
+						window.location.href="event.xhtml?id=#{sps.etkinlik_id}";
+					}
+					else{
+						saatdak[0]-=1;
+						saatdak[1]=60;
+					}
+				}
+				saatdak[1]-=1;
+				sure.innerHTML=saatdak[0]+":"+saatdak[1];
+				hidsure.value=sure.innerHTML;
+			},1000);
+			function findfirstnotof(search,chars){
+				for(var i=0;i&lt;search.length;i++)
+					if(chars.search(search[i])==-1)
+						return true;
+				return false;
+			}
+		</script>
+	</h:body>
+</html>	

@@ -1,0 +1,185 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:h="http://java.sun.com/jsf/html"
+  xmlns:f="http://java.sun.com/jsf/core"
+  xmlns:c="http://java.sun.com/jsp/jstl/core"
+  xmlns:ui="http://java.sun.com/jsf/facelets">
+	<h:head>
+		<link type="text/css" rel="stylesheet" href="/FRCweb/pages.css"/>
+		<script src="https://kit.fontawesome.com/60d7967167.js" ></script>
+		
+		    <f:metadata>  
+		        <f:viewParam name="rc" value="#{resetPassword.rc}" />  
+		    </f:metadata> 
+	</h:head>
+	<h:body>
+	#{global.init()}
+		<div class="index_topbot"></div>
+
+		<div id="hpage_nav" class="centered">
+			<div class="container">
+				<ul>
+					<li><h:outputLink value="index.xhtml?faces-redirect=true" class="logo">FRCticket</h:outputLink></li>
+					<li><h:outputLink value="communication.xhtml?faces-redirect=true">İletişim</h:outputLink></li>
+					<li><h:outputLink value="help.xhtml?faces-redirect=true">Yardım</h:outputLink></li>
+					<li><span class="navinfo">#{index.tel}</span></li>
+					<li><span class="navinfo">#{index.mail}</span></li>
+					<li>
+   					<h:form id="src">
+   					<div id="box">
+       					<h:inputText value="#{search.srcInput}" styleClass="search"/>
+       					<div><i onclick="document.getElementById('src:git').click();" class="fa fa-search"></i></div>
+     					<h:commandButton id="git" style="display:none" action="search.xhtml"/>
+   					</div>
+   					</h:form>
+   					</li>
+   					<c:choose> 
+   						<c:when test="#{login.logged}">
+							<h:outputText value="&lt;li onclick=&quot;cikisyap();&quot; style=&quot;float: right;cursor:pointer&quot;&gt;&lt;a &gt;&lt;i class=&quot;fa fa-user&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt; Çıkış&lt;/a&gt;&lt;/li&gt;" escape="false"/>						</c:when>
+						<c:otherwise>
+							<h:outputText value="&lt;li style=&quot;float: right;&quot;&gt;&lt;a href=&quot;sign-up.xhtml?faces-redirect=true&quot;&gt;&lt;i class=&quot;fa fa-user&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt; Kayıt Ol&lt;/a&gt;&lt;/li&gt;" escape="false"/>
+							<h:outputText value="&lt;li style=&quot;float: right;&quot;&gt;&lt;a href=&quot;login.xhtml?faces-redirect=true&quot;&gt;&lt;i class=&quot;fa fa-user&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt; Giriş Yap&lt;/a&gt;&lt;/li&gt;" escape="false"/>
+						</c:otherwise>
+					</c:choose>
+				</ul>
+				
+			</div>
+		</div>
+		<div id="hpage_discover" class="centered">
+			<div class="container">
+				<h:form>
+					
+						<ul>
+							<li>
+								<span><i class="fa fa-eye fa-2x" aria-hidden="true"></i></span>
+	  							<h:selectOneMenu id="hpage_categori" value="#{search.kategori}">
+	  								<f:selectItem itemLabel="Tüm Kategoriler" itemValue="tumktg"/>
+	  								<f:selectItems value="#{index.kategoriList}" var="x" itemValue="#{x}" itemLabel="#{x}"/>
+	    						</h:selectOneMenu>
+							</li>
+							<li>
+								<span><i class="fa fa-calendar-o fa-2x" aria-hidden="true"></i></span>
+	  							<h:selectOneMenu value="#{search.tarih}" id="hpage_tarih" >
+		  							<f:selectItem itemValue="tum" itemLabel="Tüm Tarihler"/>
+		  							<f:selectItem itemValue="bugun" itemLabel="Bugün"/>
+		  							<f:selectItem itemValue="bhafta" itemLabel="Bu Hafta İçerisinde"/>
+		  							<f:selectItem itemValue="o30g" itemLabel="Bu Ay İçerisinde"/>	
+	  							</h:selectOneMenu>
+	
+							</li>
+							<li>
+								<span><i class="fa fa-map-marker fa-2x" aria-hidden="true"></i></span>
+	  							<h:selectOneMenu value="#{search.il}" id="hpage_yer" >
+		  							<f:selectItem itemValue="tum" itemLabel="Tüm Türkiye"/>
+		  							<f:selectItems itemValue="#{x}" itemLabel="#{x}" value="#{index.ilList}" var="x"/>
+	  							</h:selectOneMenu>
+							</li>
+							<li>
+								<h:commandButton id="git" styleClass="blue-button" value="Git" action="search.xhtml"/>
+							</li>
+						</ul>
+					</h:form>
+			</div>
+		</div>
+		<div id="foc" class="index_body">
+			<div class="foc_container">
+				<h1 class="foc_h1">Şifre Sıfırlama</h1>
+				<h:form id="reset" styleClass="foc_form">
+					<h:panelGrid columns="2">
+							<h:outputText value="Yeni Şifre: "/>
+							<h:inputSecret id="pass" value="#{resetPassword.sifre}" styleClass="foc_input" maxlength="20" autocomplete="off" />
+							<h:outputText value="Yeni Şifre Tekrar: "/>
+							<h:inputSecret id="passa" value="#{resetPassword.sifret}" styleClass="foc_input" maxlength="20" autocomplete="off" />
+							<h:outputText/>
+							<button onclick="control();return false;" style="width:100px;height:50px;margin-left:98px;" class="blue-button">Gönder</button>
+					</h:panelGrid>
+					<h:commandButton id="submit" style="margin:0px;float:right;display:none;" action="#{resetPassword.reset}" styleClass="foc_gonder" value="Gönder"/>
+				</h:form>			
+				<div id="validate-reset" style="display: none;height: 50px;border: 2px solid red;padding: 20px;margin-top: 20px;color: Red;text-align:center;">
+					Şifre En Az 6 En Fazla 30 Karakterden oluşabilir ve Şifreler Uyuşmalıdır.
+				</div>
+			</div>
+		</div>
+		<div style="height:130px;" class="index_topbot">
+			<div class="index-bot-container">
+				<span class="social-title">BİZİ TAKİP EDİN</span>
+				<div class="social">
+					<a href="#{index.facebook}" style="margin-left:0px;" class="fa fa-facebook-square fa-3x"></a>
+					<a href="#{index.youtube}" class="fa fa-youtube-square fa-3x"></a>
+					<a href="#{index.instagram}" class="fab fa-instagram-square fa-3x"></a>
+					<a href="#{index.twitter}" class="fa fa-twitter-square fa-3x"></a>
+				</div>
+				<span class="rights">©    2020 Bu sitedeki tüm haklar saklıdır. Bu web sitesinin kullanımı, ticari kullanımı engelleyen Kullanım Koşulları'na tabidir. Bu sayfayı geçtiğinizde bu koşulları kabul etmiş sayılırsınız.</span>
+			</div>
+			<h:form id="logout">
+				<h:commandButton id="button" action="index.xhtml?faces-redirect=true" style="display:none"></h:commandButton>
+				<h:inputHidden id="logoutval" value="#{login.logged}"/>
+			</h:form>
+		</div>
+		<div onclick="fixClick()" class="fix-message">
+			<div onclick="fixContentClick()" class="fix-message-content">
+				<i onclick="fixExit();" class="far fa-window-close fa-2x exit"></i>
+				<div class="message"></div>
+			</div>
+		</div>
+		<script>
+			var sifre=document.getElementById("reset:pass");
+			var sifret=document.getElementById("reset:passa");
+			var msgbox=document.getElementById("validate-reset");
+			var submit=document.getElementById("reset:submit");
+			function control(){
+				if(sifre.value!==sifret.value || sifre.value.length&gt;30 || sifre.value.length&lt;6)
+					msgbox.style.display="block";
+				else
+					submit.click();
+			}
+			
+			var fixcontentclicked=false;
+			var params=getSearchParameters();
+			var fixmessage=document.querySelector(".fix-message");
+			var fixmsg=fixmessage.firstElementChild.lastElementChild;
+			if(params["sonuc"]==="basarili"){
+				fixmsg.innerHTML="Şifre Değiştirme İşlemi Başarıyla Gerçekleşti.";
+				fixmessage.style.display="block";
+			}
+			else if(params["sonuc"]==="basarisiz"){
+				fixmsg.innerHTML="Şifre Değiştirme İşlemi Başarısız. Lütfen Doğru Girdiler Girmeyi Deneyiniz ve Doğru Şifre Değiştirme Linkine Girdiğinize Emin Olunuz.";
+				fixmessage.style.display="block";	
+			}
+			else if(params["sonuc"]==="error"){
+				fixmsg.innerHTML="Sistemsel Bir Sorun Bulunmaktadır.Lütfen Daha Sonra Tekrar Deneyiniz.";
+				fixmessage.style.display="block";
+			}
+			function fixContentClick(){
+				fixcontentclicked=true;
+			}
+			function fixClick(){
+				if(fixcontentclicked)
+					fixcontentclicked=false;
+				else
+					fixExit();
+			}
+			function fixExit(){
+				var fixmessage=document.getElementsByClassName("fix-message")[0];
+				fixmessage.style.display="none";
+			}
+			
+			function getSearchParameters() {
+			      var prmstr = window.location.search.substr(1);
+			      return prmstr != null &amp;&amp; prmstr != "" ? transformToAssocArray(prmstr) : {};
+			}
+			function transformToAssocArray( prmstr ) {
+			    var params = {};
+			    var prmarr = prmstr.split("&amp;");
+			    for ( var i = 0; i &lt; prmarr.length; i++) {
+			        var tmparr = prmarr[i].split("=");
+			        params[tmparr[0]] = tmparr[1];
+			    }
+			    return params;
+			}
+			
+		</script>
+		<script src="/FRCweb/javascript.js"></script>
+</h:body>
+</html>

@@ -1,0 +1,243 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:h="http://java.sun.com/jsf/html"
+  xmlns:f="http://java.sun.com/jsf/core"
+  xmlns:c="http://java.sun.com/jsp/jstl/core"
+  xmlns:ui="http://java.sun.com/jsf/facelets">
+	<h:head>
+		<link type="text/css" rel="stylesheet" href="/FRCweb/pages.css"/>	
+		<script src="https://kit.fontawesome.com/60d7967167.js" ></script>
+	</h:head>
+	<body>
+	#{global.init()}
+	#{event.hit()}
+	#{event.init()}
+		<div class="index_topbot"></div>
+		
+		<div id="hpage_nav" class="centered">
+			<div class="container">
+				<ul>
+					<li><h:outputLink value="index.xhtml?faces-redirect=true" class="logo">FRCticket</h:outputLink></li>
+					<li><h:outputLink value="communication.xhtml?faces-redirect=true">İletişim</h:outputLink></li>
+					<li><h:outputLink value="help.xhtml?faces-redirect=true">Yardım</h:outputLink></li>
+					<li><span class="navinfo">#{index.tel}</span></li>
+					<li><span class="navinfo">#{index.mail}</span></li>
+					<li>
+   					<h:form id="src">
+   					<div id="box">
+       					<h:inputText value="#{search.srcInput}" styleClass="search"/>
+       					<div><i onclick="document.getElementById('src:git').click();" class="fa fa-search"></i></div>
+     					<h:commandButton id="git" style="display:none" action="search.xhtml"/>
+   					</div>
+   					</h:form>
+   					</li>
+   					<c:choose> 
+   						<c:when test="#{login.logged}">
+							<h:outputText value="&lt;li onclick=&quot;cikisyap();&quot; style=&quot;float: right;cursor:pointer&quot;&gt;&lt;a &gt;&lt;i class=&quot;fa fa-user&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt; Çıkış&lt;/a&gt;&lt;/li&gt;" escape="false"/>
+						</c:when>
+						<c:otherwise>
+							<h:outputText value="&lt;li style=&quot;float: right;&quot;&gt;&lt;a href=&quot;sign-up.xhtml?faces-redirect=true&quot;&gt;&lt;i class=&quot;fa fa-user&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt; Kayıt Ol&lt;/a&gt;&lt;/li&gt;" escape="false"/>
+							<h:outputText value="&lt;li style=&quot;float: right;&quot;&gt;&lt;a href=&quot;login.xhtml?faces-redirect=true&quot;&gt;&lt;i class=&quot;fa fa-user&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt; Giriş Yap&lt;/a&gt;&lt;/li&gt;" escape="false"/>
+						</c:otherwise>
+					</c:choose>
+				</ul>
+				
+			</div>
+		</div>
+		<div id="hpage_discover" class="centered">
+			<div class="container">
+				<h:form>
+					
+						<ul>
+							<li>
+								<span><i class="fa fa-eye fa-2x" aria-hidden="true"></i></span>
+	  							<h:selectOneMenu id="hpage_categori" value="#{search.kategori}">
+	  								<f:selectItem itemLabel="Tüm Kategoriler" itemValue="tumktg"/>
+	  								<f:selectItems value="#{index.kategoriList}" var="x" itemValue="#{x}" itemLabel="#{x}"/>
+	    						</h:selectOneMenu>
+							</li>
+							<li>
+								<span><i class="fa fa-calendar-o fa-2x" aria-hidden="true"></i></span>
+	  							<h:selectOneMenu value="#{search.tarih}" id="hpage_tarih" >
+		  							<f:selectItem itemValue="tum" itemLabel="Tüm Tarihler"/>
+		  							<f:selectItem itemValue="bugun" itemLabel="Bugün"/>
+		  							<f:selectItem itemValue="bhafta" itemLabel="Bu Hafta İçerisinde"/>
+		  							<f:selectItem itemValue="o30g" itemLabel="Bu Ay İçerisinde"/>	
+	  							</h:selectOneMenu>
+	
+							</li>
+							<li>
+								<span><i class="fa fa-map-marker fa-2x" aria-hidden="true"></i></span>
+	  							<h:selectOneMenu value="#{search.il}" id="hpage_yer" >
+		  							<f:selectItem itemValue="tum" itemLabel="Tüm Türkiye"/>
+		  							<f:selectItems itemValue="#{x}" itemLabel="#{x}" value="#{index.ilList}" var="x"/>
+	  							</h:selectOneMenu>
+							</li>
+							<li>
+								<h:commandButton id="git" styleClass="blue-button" value="Git" action="search.xhtml"/>
+							</li>
+						</ul>
+					</h:form>
+			</div>
+		</div>
+		<div class="index_body">
+		<div class="event_container">
+			<h2 class="hot-ticket-header">#{event.e.baslik}</h2>
+			<div class="saleinf">
+				<h:graphicImage value="#{event.e.img}" alt="Buraya Resim Gelecek"/>
+				<div class="datetime">
+					<div class="date">
+						<span class="daydate">#{event.e.gun}</span>
+						<span class="month">#{event.convertMonth(event.e.ay)}</span>
+						<span class="year">#{event.e.yil}</span>
+					</div>
+					<div class="daytime">
+					<span class="day">#{event.convertDay(event.e.gun,event.e.ay,event.e.yil)}</span>
+					<span class="time">#{event.e.saat}:#{event.e.dakika}</span>
+					</div>
+					<span class="location">#{event.e.konum}</span>
+				</div>
+				<h4>
+					#{event.e.altbaslik}
+				</h4>
+				<p>
+					#{event.e.icerik}
+				</p>
+			</div>
+			<div style="margin-top:40px;height: auto;" class="saleinf2">
+				<h1 class="std-title">BİLET ARA</h1>
+				<h:form id="sale" >
+					<h:panelGrid columns="2" columnClasses="firsttd,secondtd">
+						<h:panelGroup>
+						Kategori Seçimi
+						</h:panelGroup>
+						
+						<h:panelGroup>
+							<h:selectOneMenu  id="category" value="#{sps.kategori}" >
+								<f:selectItems value="#{event.kategoriList}" var="x" itemValue="#{x.kategori}" itemLabel="#{x.kategori}"/>
+							</h:selectOneMenu>
+						</h:panelGroup>
+					
+					</h:panelGrid>
+					<p>#{event.e.altbilgi1}</p>
+					<hr style="margin-left: -10px;margin-bottom:30px;width: 102%; border-top: 1px solid black;"/>
+					<h1 class="std-title">BİLET SEÇİMİ</h1>
+					<h:panelGrid columns="2" columnClasses="firsttd,secondtd">
+						<h:panelGroup>
+							Bölüm / Blok
+						</h:panelGroup>
+						<h:panelGroup>
+							<h:selectOneMenu id="section" value="#{sps.bolum}">
+								<f:selectItems  value="#{event.bolumList}" var="x" itemLabel="#{x.id}" itemValue="#{x.bolum}"/>
+							</h:selectOneMenu>
+						</h:panelGroup>
+							
+						<h:panelGroup>
+						Fiyat:
+						</h:panelGroup>
+						<h:panelGroup>
+							<h:selectOneMenu id="price" value="#{sps.fiyat}">
+								<f:selectItems  value="#{event.fiyatList}" var="x" itemLabel="#{x.id}" itemValue="#{x.fiyat}"/>
+							</h:selectOneMenu>
+						</h:panelGroup>
+						
+					</h:panelGrid>
+						<p>#{event.e.altbilgi2}</p>
+					<hr style="margin-left: -10px;width: 102%; border-top: 1px solid black;"/>
+					<h:graphicImage value="#{event.e.duzenimg}" alt="BURADA OTURMA DÜZENİ RESMİ OLACAK"/>
+					<h:inputHidden id="hiddenid" value="#{sps.etkinlik_id}"/>
+					<h:commandButton id="submit" style="display:none;" styleClass="blue-button" value="Devam" action="sales-process-shopping.xhtml"/>			
+				</h:form>
+				<button class="blue-button" onclick="devam();">Devam</button>
+			</div>
+		</div>
+		</div>
+		<div style="height:130px;" class="index_topbot">
+			<div class="index-bot-container">
+				<span class="social-title">BİZİ TAKİP EDİN</span>
+				<div class="social">
+					<a href="#{index.facebook}" style="margin-left:0px;" class="fa fa-facebook-square fa-3x"></a>
+					<a href="#{index.youtube}" class="fa fa-youtube-square fa-3x"></a>
+					<a href="#{index.instagram}" class="fab fa-instagram-square fa-3x"></a>
+					<a href="#{index.twitter}" class="fa fa-twitter-square fa-3x"></a>
+				</div>
+				<span class="rights">©    2020 Bu sitedeki tüm haklar saklıdır. Bu web sitesinin kullanımı, ticari kullanımı engelleyen Kullanım Koşulları'na tabidir. Bu sayfayı geçtiğinizde bu koşulları kabul etmiş sayılırsınız.</span>
+			</div>
+			<h:form id="logout">
+				<h:commandButton id="button" action="communication.xhtml?faces-redirect=true" style="display:none"></h:commandButton>
+				<h:inputHidden id="logoutval" value="#{login.logged}"/>
+			</h:form>
+		</div>
+		<script>
+			var kategori=document.getElementById("sale:category");
+			var bolum=document.getElementById("sale:section");
+			var fiyat=document.getElementById("sale:price");
+			var hiddenid=document.getElementById("sale:hiddenid");
+			var submit=document.getElementById("sale:submit");
+			var bolumler=bolum.children;
+			var fiyatlar=fiyat.children;
+			bolum.value="";
+			fiyat.value="";
+			hiddenid.value=getSearchParameters()["id"];
+			if(hiddenid.value===null || hiddenid.value==="" || hiddenid.value==="undefined" || hiddenid.value===undefined)
+				window.location.href="index.xhtml";
+			for(var i=0;i&lt;bolumler.length;i++){
+				bolumler[i].setAttribute("conn",bolumler[i].innerHTML);
+				bolumler[i].innerHTML=bolumler[i].value;
+				if(kategori.value!==bolumler[i].getAttribute("conn"))
+					bolumler[i].style.display="none";
+			}
+			for(var i=0;i&lt;fiyatlar.length;i++){
+				fiyatlar[i].setAttribute("conn",fiyatlar[i].innerHTML);
+				fiyatlar[i].innerHTML=fiyatlar[i].value;
+				fiyatlar[i].style.display="none";
+			}
+			function devam(){
+				if(kategori.value==="" || bolum.value==="" || fiyat.value==="")
+				{
+					alert("Kategori,Bölüm ve Fiyat Seçilmelidir.");
+					return false;
+				}
+				submit.click();
+			}
+			kategori.onchange=function(){
+				for(var i=0;i&lt;bolumler.length;i++){
+					if(kategori.value!==bolumler[i].getAttribute("conn"))
+						bolumler[i].style.display="none";
+					else
+						bolumler[i].style.display="block";
+				}
+				for(var i=0;i&lt;fiyatlar.length;i++)
+					fiyatlar[i].style.display="none";
+				fiyat.value="";
+				bolum.value="";
+			}
+			bolum.onchange=function(){
+				for(var i=0;i&lt;fiyatlar.length;i++){
+					var splitted=fiyatlar[i].getAttribute("conn").split("#-#-#");
+					if(kategori.value===splitted[0] &amp;&amp; bolum.value===splitted[1])
+						fiyatlar[i].style.display="block";
+					else
+						fiyatlar[i].style.display="none";
+					fiyat.value="";
+				}
+			}
+			function getSearchParameters() {
+			      var prmstr = window.location.search.substr(1);
+			      return prmstr != null &amp;&amp; prmstr != "" ? transformToAssocArray(prmstr) : {};
+			}
+			function transformToAssocArray( prmstr ) {
+			    var params = {};
+			    var prmarr = prmstr.split("&amp;");
+			    for ( var i = 0; i &lt; prmarr.length; i++) {
+			        var tmparr = prmarr[i].split("=");
+			        params[tmparr[0]] = tmparr[1];
+			    }
+			    return params;
+			}
+		</script>
+		<script type="text/javascript">
+		</script>
+	</body>
+</html>

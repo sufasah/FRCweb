@@ -1,0 +1,72 @@
+Tem 30, 2020 1:43:04 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Server version name:   Apache Tomcat/7.0.105
+Tem 30, 2020 1:43:04 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Server built:          Jul 2 2020 12:25:26 UTC
+Tem 30, 2020 1:43:04 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Server version number: 7.0.105.0
+Tem 30, 2020 1:43:04 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: OS Name:               Windows 10
+Tem 30, 2020 1:43:04 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: OS Version:            10.0
+Tem 30, 2020 1:43:04 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Architecture:          amd64
+Tem 30, 2020 1:43:04 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Java Home:             C:\Program Files\Java\jdk1.8.0_261\jre
+Tem 30, 2020 1:43:04 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: JVM Version:           1.8.0_261-b12
+Tem 30, 2020 1:43:04 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: JVM Vendor:            Oracle Corporation
+Tem 30, 2020 1:43:04 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: CATALINA_BASE:         c:\xampp\tomcat
+Tem 30, 2020 1:43:04 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: CATALINA_HOME:         c:\xampp\tomcat
+Tem 30, 2020 1:43:04 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Djava.util.logging.config.file=c:\xampp\tomcat\conf\logging.properties
+Tem 30, 2020 1:43:04 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+Tem 30, 2020 1:43:04 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+Tem 30, 2020 1:43:04 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Dignore.endorsed.dirs=
+Tem 30, 2020 1:43:04 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Dcatalina.base=c:\xampp\tomcat
+Tem 30, 2020 1:43:04 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Dcatalina.home=c:\xampp\tomcat
+Tem 30, 2020 1:43:04 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Djava.io.tmpdir=c:\xampp\tomcat\temp
+Tem 30, 2020 1:43:04 PM org.apache.catalina.core.AprLifecycleListener lifecycleEvent
+INFO: The Apache Tomcat Native library which allows using OpenSSL was not found on the java.library.path: [C:\Program Files\Java\jdk1.8.0_261\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Users\nihaSWin\AppData\Local\Microsoft\WindowsApps;C:\Program Files\JetBrains\PyCharm Community Edition 2020.1.2\bin;C:\Users\nihaSWin\AppData\Local\Programs\Python\Python37\Scripts;.]
+Tem 30, 2020 1:43:04 PM org.apache.coyote.AbstractProtocol init
+INFO: Initializing ProtocolHandler ["http-bio-8080"]
+Tem 30, 2020 1:43:04 PM org.apache.catalina.startup.Catalina load
+INFO: Initialization processed in 468 ms
+Tem 30, 2020 1:43:04 PM org.apache.catalina.core.StandardService startInternal
+INFO: Starting service [Catalina]
+Tem 30, 2020 1:43:04 PM org.apache.catalina.core.StandardEngine startInternal
+INFO: Starting Servlet Engine: Apache Tomcat/7.0.105
+Tem 30, 2020 1:43:04 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory [C:\xampp\tomcat\webapps\docs]
+Tem 30, 2020 1:43:04 PM org.apache.catalina.util.SessionIdGeneratorBase createSecureRandom
+WARNING: Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [128] milliseconds.
+Tem 30, 2020 1:43:04 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deployment of web application directory [C:\xampp\tomcat\webapps\docs] has finished in [373] ms
+Tem 30, 2020 1:43:04 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory [C:\xampp\tomcat\webapps\examples]
+Tem 30, 2020 1:43:04 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deployment of web application directory [C:\xampp\tomcat\webapps\examples] has finished in [219] ms
+Tem 30, 2020 1:43:04 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory [C:\xampp\tomcat\webapps\host-manager]
+Tem 30, 2020 1:43:04 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deployment of web application directory [C:\xampp\tomcat\webapps\host-manager] has finished in [42] ms
+Tem 30, 2020 1:43:04 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory [C:\xampp\tomcat\webapps\manager]
+Tem 30, 2020 1:43:04 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deployment of web application directory [C:\xampp\tomcat\webapps\manager] has finished in [52] ms
+Tem 30, 2020 1:43:04 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory [C:\xampp\tomcat\webapps\ROOT]
+Tem 30, 2020 1:43:04 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deployment of web application directory [C:\xampp\tomcat\webapps\ROOT] has finished in [37] ms
+Tem 30, 2020 1:43:04 PM org.apache.coyote.AbstractProtocol start
+INFO: Starting ProtocolHandler ["http-bio-8080"]
+Tem 30, 2020 1:43:04 PM org.apache.catalina.startup.Catalina start
+INFO: Server startup in 759 ms

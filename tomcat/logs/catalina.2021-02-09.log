@@ -1,0 +1,157 @@
+Şub 09, 2021 4:27:06 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Server version name:   Apache Tomcat/7.0.105
+Şub 09, 2021 4:27:06 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Server built:          Jul 2 2020 12:25:26 UTC
+Şub 09, 2021 4:27:06 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Server version number: 7.0.105.0
+Şub 09, 2021 4:27:06 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: OS Name:               Windows 10
+Şub 09, 2021 4:27:06 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: OS Version:            10.0
+Şub 09, 2021 4:27:06 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Architecture:          amd64
+Şub 09, 2021 4:27:06 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Java Home:             C:\Program Files\Java\jdk1.8.0_261\jre
+Şub 09, 2021 4:27:06 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: JVM Version:           1.8.0_261-b12
+Şub 09, 2021 4:27:06 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: JVM Vendor:            Oracle Corporation
+Şub 09, 2021 4:27:06 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: CATALINA_BASE:         C:\xampp\tomcat
+Şub 09, 2021 4:27:06 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: CATALINA_HOME:         C:\xampp\tomcat
+Şub 09, 2021 4:27:06 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Djava.util.logging.config.file=C:\xampp\tomcat\conf\logging.properties
+Şub 09, 2021 4:27:06 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+Şub 09, 2021 4:27:06 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+Şub 09, 2021 4:27:06 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Dignore.endorsed.dirs=
+Şub 09, 2021 4:27:06 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Dcatalina.base=C:\xampp\tomcat
+Şub 09, 2021 4:27:06 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Dcatalina.home=C:\xampp\tomcat
+Şub 09, 2021 4:27:06 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Djava.io.tmpdir=C:\xampp\tomcat\temp
+Şub 09, 2021 4:27:06 PM org.apache.catalina.core.AprLifecycleListener lifecycleEvent
+INFO: The Apache Tomcat Native library which allows using OpenSSL was not found on the java.library.path: [C:\Program Files\Java\jdk1.8.0_261\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Program Files (x86)\Java\jre1.8.0_261\bin---;C:\Program Files\Java\jdk1.8.0_261\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\;C:\Program Files\Git\cmd;C:\Program Files\nodejs\;C:\Users\nihaSWin\AppData\Roaming\npm;C:\Program Files\dotnet\;C:\Users\nihaSWin\AppData\Local\Microsoft\WindowsApps;C:\Program Files\JetBrains\PyCharm Community Edition 2020.1.2\bin;C:\Users\nihaSWin\AppData\Local\Programs\Python\Python37\Scripts;C:\Users\nihaSWin\AppData\Local\GitHubDesktop\bin;D:\flutter\bin;C:\Users\nihaSWin\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\nihaSWin\AppData\Roaming\npm;C:\Program Files\PostgreSQL\13\bin;C:\Users\nihaSWin\.dotnet\tools;C:\MinGW\bin;;.]
+Şub 09, 2021 4:27:06 PM org.apache.coyote.AbstractProtocol init
+INFO: Initializing ProtocolHandler ["http-bio-8080"]
+Şub 09, 2021 4:27:06 PM org.apache.catalina.startup.Catalina load
+INFO: Initialization processed in 560 ms
+Şub 09, 2021 4:27:06 PM org.apache.catalina.core.StandardService startInternal
+INFO: Starting service [Catalina]
+Şub 09, 2021 4:27:06 PM org.apache.catalina.core.StandardEngine startInternal
+INFO: Starting Servlet Engine: Apache Tomcat/7.0.105
+Şub 09, 2021 4:27:06 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory [C:\xampp\tomcat\webapps\docs]
+Şub 09, 2021 4:27:06 PM org.apache.catalina.util.SessionIdGeneratorBase createSecureRandom
+WARNING: Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [167] milliseconds.
+Şub 09, 2021 4:27:06 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deployment of web application directory [C:\xampp\tomcat\webapps\docs] has finished in [405] ms
+Şub 09, 2021 4:27:06 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory [C:\xampp\tomcat\webapps\examples]
+Şub 09, 2021 4:27:07 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deployment of web application directory [C:\xampp\tomcat\webapps\examples] has finished in [374] ms
+Şub 09, 2021 4:27:07 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory [C:\xampp\tomcat\webapps\host-manager]
+Şub 09, 2021 4:27:07 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deployment of web application directory [C:\xampp\tomcat\webapps\host-manager] has finished in [47] ms
+Şub 09, 2021 4:27:07 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory [C:\xampp\tomcat\webapps\manager]
+Şub 09, 2021 4:27:07 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deployment of web application directory [C:\xampp\tomcat\webapps\manager] has finished in [49] ms
+Şub 09, 2021 4:27:07 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory [C:\xampp\tomcat\webapps\ROOT]
+Şub 09, 2021 4:27:07 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deployment of web application directory [C:\xampp\tomcat\webapps\ROOT] has finished in [39] ms
+Şub 09, 2021 4:27:07 PM org.apache.coyote.AbstractProtocol start
+INFO: Starting ProtocolHandler ["http-bio-8080"]
+Şub 09, 2021 4:27:07 PM org.apache.catalina.startup.Catalina start
+INFO: Server startup in 958 ms
+Şub 09, 2021 4:27:26 PM org.apache.catalina.core.StandardServer await
+WARNING: Invalid shutdown command [] received
+Şub 09, 2021 4:27:26 PM org.apache.catalina.core.StandardServer await
+WARNING: Invalid shutdown command [] received
+Şub 09, 2021 4:27:27 PM org.apache.catalina.core.StandardServer await
+WARNING: Invalid shutdown command [] received
+Şub 09, 2021 4:27:27 PM org.apache.catalina.core.StandardServer await
+WARNING: Invalid shutdown command [] received
+Şub 09, 2021 4:27:27 PM org.apache.catalina.core.StandardServer await
+WARNING: Invalid shutdown command [] received
+Şub 09, 2021 4:27:27 PM org.apache.catalina.core.StandardServer await
+WARNING: Invalid shutdown command [] received
+Şub 09, 2021 4:27:28 PM org.apache.catalina.core.StandardServer await
+WARNING: Invalid shutdown command [] received
+Şub 09, 2021 4:27:28 PM org.apache.catalina.core.StandardServer await
+WARNING: Invalid shutdown command [] received
+Şub 09, 2021 4:27:28 PM org.apache.catalina.core.StandardServer await
+WARNING: Invalid shutdown command [] received
+Şub 09, 2021 4:27:29 PM org.apache.catalina.core.StandardServer await
+WARNING: Invalid shutdown command [] received
+Şub 09, 2021 4:27:29 PM org.apache.catalina.core.StandardServer await
+WARNING: Invalid shutdown command [] received
+Şub 09, 2021 4:27:29 PM org.apache.catalina.core.StandardServer await
+WARNING: Invalid shutdown command [] received
+Şub 09, 2021 4:27:34 PM org.apache.catalina.core.StandardServer await
+WARNING: Invalid shutdown command [] received
+Şub 09, 2021 4:27:34 PM org.apache.catalina.core.StandardServer await
+WARNING: Invalid shutdown command [] received
+Şub 09, 2021 4:27:34 PM org.apache.catalina.core.StandardServer await
+WARNING: Invalid shutdown command [] received
+Şub 09, 2021 4:27:34 PM org.apache.catalina.core.StandardServer await
+WARNING: Invalid shutdown command [] received
+Şub 09, 2021 4:27:34 PM org.apache.catalina.core.StandardServer await
+WARNING: Invalid shutdown command [] received
+Şub 09, 2021 4:27:34 PM org.apache.catalina.core.StandardServer await
+WARNING: Invalid shutdown command [] received
+Şub 09, 2021 4:27:36 PM org.apache.coyote.http11.AbstractHttp11Processor process
+INFO: Error parsing HTTP request header
+ Note: further occurrences of HTTP request parsing errors will be logged at DEBUG level.
+java.lang.IllegalArgumentException: Invalid character found in method name [0x160x030x010x020x000x010x000x010xfc0x030x030x9eV0x9b0x9b0xdf^0x1e0xa90xc30x9b0xed0xe00x95Q(0xcdqI0xc90x0f0xca0xc4$0xa30xc50x1720xa3%5y0xe7]. HTTP method names must be tokens
+	at org.apache.coyote.http11.InternalInputBuffer.parseRequestLine(InternalInputBuffer.java:140)
+	at org.apache.coyote.http11.AbstractHttp11Processor.process(AbstractHttp11Processor.java:1108)
+	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:654)
+	at org.apache.tomcat.util.net.JIoEndpoint$SocketProcessor.run(JIoEndpoint.java:317)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+
+Şub 09, 2021 4:27:36 PM org.apache.coyote.http11.AbstractHttp11Processor process
+INFO: Error parsing HTTP request header
+ Note: further occurrences of HTTP request parsing errors will be logged at DEBUG level.
+java.lang.IllegalArgumentException: Invalid character found in method name [0x160x030x010x020x000x010x000x010xfc0x030x030xd50x7f0x8f0xbb0xf8z0x010x110xbb0xb430xf5H0x8bO0x980x090xe40xc10xf3Q0xf70xd8.%aD0xe1,0xfc0x1c6]. HTTP method names must be tokens
+	at org.apache.coyote.http11.InternalInputBuffer.parseRequestLine(InternalInputBuffer.java:140)
+	at org.apache.coyote.http11.AbstractHttp11Processor.process(AbstractHttp11Processor.java:1108)
+	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:654)
+	at org.apache.tomcat.util.net.JIoEndpoint$SocketProcessor.run(JIoEndpoint.java:317)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+
+Şub 09, 2021 4:27:36 PM org.apache.coyote.http11.AbstractHttp11Processor process
+INFO: Error parsing HTTP request header
+ Note: further occurrences of HTTP request parsing errors will be logged at DEBUG level.
+java.lang.IllegalArgumentException: Invalid character found in method name [0x160x030x010x020x000x010x000x010xfc0x030x03u0xeeIi0xd60xd5S0xd30xa40x930x9d6D0xffwL80xc7<0xbb0xcc0x0es0xf00xe40xe80x15)0xe90xb60xaa0xeb]. HTTP method names must be tokens
+	at org.apache.coyote.http11.InternalInputBuffer.parseRequestLine(InternalInputBuffer.java:140)
+	at org.apache.coyote.http11.AbstractHttp11Processor.process(AbstractHttp11Processor.java:1108)
+	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:654)
+	at org.apache.tomcat.util.net.JIoEndpoint$SocketProcessor.run(JIoEndpoint.java:317)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+
+Şub 09, 2021 4:27:49 PM org.apache.catalina.core.StandardServer await
+INFO: A valid shutdown command was received via the shutdown port. Stopping the Server instance.
+Şub 09, 2021 4:27:49 PM org.apache.coyote.AbstractProtocol pause
+INFO: Pausing ProtocolHandler ["http-bio-8080"]
+Şub 09, 2021 4:27:49 PM org.apache.catalina.core.StandardService stopInternal
+INFO: Stopping service [Catalina]
+Şub 09, 2021 4:27:49 PM org.apache.coyote.AbstractProtocol stop
+INFO: Stopping ProtocolHandler ["http-bio-8080"]
+Şub 09, 2021 4:27:49 PM org.apache.coyote.AbstractProtocol destroy
+INFO: Destroying ProtocolHandler ["http-bio-8080"]

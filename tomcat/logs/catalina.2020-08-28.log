@@ -1,0 +1,496 @@
+Ağu 28, 2020 9:44:59 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Server version name:   Apache Tomcat/7.0.105
+Ağu 28, 2020 9:44:59 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Server built:          Jul 2 2020 12:25:26 UTC
+Ağu 28, 2020 9:44:59 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Server version number: 7.0.105.0
+Ağu 28, 2020 9:44:59 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: OS Name:               Windows 10
+Ağu 28, 2020 9:44:59 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: OS Version:            10.0
+Ağu 28, 2020 9:44:59 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Architecture:          amd64
+Ağu 28, 2020 9:44:59 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Java Home:             C:\Program Files\Java\jdk1.8.0_261\jre
+Ağu 28, 2020 9:44:59 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: JVM Version:           1.8.0_261-b12
+Ağu 28, 2020 9:44:59 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: JVM Vendor:            Oracle Corporation
+Ağu 28, 2020 9:44:59 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: CATALINA_BASE:         C:\xampp\tomcat
+Ağu 28, 2020 9:44:59 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: CATALINA_HOME:         C:\xampp\tomcat
+Ağu 28, 2020 9:44:59 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Djava.util.logging.config.file=C:\xampp\tomcat\conf\logging.properties
+Ağu 28, 2020 9:44:59 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+Ağu 28, 2020 9:44:59 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+Ağu 28, 2020 9:44:59 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Dignore.endorsed.dirs=
+Ağu 28, 2020 9:44:59 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Dcatalina.base=C:\xampp\tomcat
+Ağu 28, 2020 9:44:59 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Dcatalina.home=C:\xampp\tomcat
+Ağu 28, 2020 9:44:59 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Djava.io.tmpdir=C:\xampp\tomcat\temp
+Ağu 28, 2020 9:44:59 AM org.apache.catalina.core.AprLifecycleListener lifecycleEvent
+INFO: The Apache Tomcat Native library which allows using OpenSSL was not found on the java.library.path: [C:\Program Files\Java\jdk1.8.0_261\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Program Files (x86)\Java\jre1.8.0_261\bin---;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files\dotnet\;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\;C:\Program Files\Git\cmd;C:\Users\nihaSWin\AppData\Local\Microsoft\WindowsApps;C:\Program Files\JetBrains\PyCharm Community Edition 2020.1.2\bin;C:\Users\nihaSWin\AppData\Local\Programs\Python\Python37\Scripts;C:\Users\nihaSWin\AppData\Local\GitHubDesktop\bin;C:\Users\nihaSWin\.dotnet\tools;D:\flutter\bin;;.]
+Ağu 28, 2020 9:44:59 AM org.apache.coyote.AbstractProtocol init
+INFO: Initializing ProtocolHandler ["http-bio-8080"]
+Ağu 28, 2020 9:44:59 AM org.apache.coyote.AbstractProtocol init
+SEVERE: Failed to initialize end point associated with ProtocolHandler ["http-bio-8080"]
+java.net.BindException: Address already in use: JVM_Bind <null>:8080
+	at org.apache.tomcat.util.net.JIoEndpoint.bind(JIoEndpoint.java:414)
+	at org.apache.tomcat.util.net.AbstractEndpoint.init(AbstractEndpoint.java:750)
+	at org.apache.coyote.AbstractProtocol.init(AbstractProtocol.java:467)
+	at org.apache.coyote.http11.AbstractHttp11JsseProtocol.init(AbstractHttp11JsseProtocol.java:119)
+	at org.apache.catalina.connector.Connector.initInternal(Connector.java:1030)
+	at org.apache.catalina.util.LifecycleBase.init(LifecycleBase.java:136)
+	at org.apache.catalina.core.StandardService.initInternal(StandardService.java:560)
+	at org.apache.catalina.util.LifecycleBase.init(LifecycleBase.java:136)
+	at org.apache.catalina.core.StandardServer.initInternal(StandardServer.java:826)
+	at org.apache.catalina.util.LifecycleBase.init(LifecycleBase.java:136)
+	at org.apache.catalina.startup.Catalina.load(Catalina.java:663)
+	at org.apache.catalina.startup.Catalina.load(Catalina.java:686)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.catalina.startup.Bootstrap.load(Bootstrap.java:244)
+	at org.apache.catalina.startup.Bootstrap.main(Bootstrap.java:414)
+Caused by: java.net.BindException: Address already in use: JVM_Bind
+	at java.net.DualStackPlainSocketImpl.bind0(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketBind(DualStackPlainSocketImpl.java:102)
+	at java.net.AbstractPlainSocketImpl.bind(AbstractPlainSocketImpl.java:513)
+	at java.net.PlainSocketImpl.bind(PlainSocketImpl.java:180)
+	at java.net.ServerSocket.bind(ServerSocket.java:375)
+	at java.net.ServerSocket.<init>(ServerSocket.java:237)
+	at java.net.ServerSocket.<init>(ServerSocket.java:181)
+	at org.apache.tomcat.util.net.DefaultServerSocketFactory.createSocket(DefaultServerSocketFactory.java:49)
+	at org.apache.tomcat.util.net.JIoEndpoint.bind(JIoEndpoint.java:401)
+	... 17 more
+
+Ağu 28, 2020 9:44:59 AM org.apache.catalina.core.StandardService initInternal
+SEVERE: Failed to initialize connector [Connector[HTTP/1.1-8080]]
+org.apache.catalina.LifecycleException: Protocol handler initialization failed
+	at org.apache.catalina.connector.Connector.initInternal(Connector.java:1032)
+	at org.apache.catalina.util.LifecycleBase.init(LifecycleBase.java:136)
+	at org.apache.catalina.core.StandardService.initInternal(StandardService.java:560)
+	at org.apache.catalina.util.LifecycleBase.init(LifecycleBase.java:136)
+	at org.apache.catalina.core.StandardServer.initInternal(StandardServer.java:826)
+	at org.apache.catalina.util.LifecycleBase.init(LifecycleBase.java:136)
+	at org.apache.catalina.startup.Catalina.load(Catalina.java:663)
+	at org.apache.catalina.startup.Catalina.load(Catalina.java:686)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.catalina.startup.Bootstrap.load(Bootstrap.java:244)
+	at org.apache.catalina.startup.Bootstrap.main(Bootstrap.java:414)
+Caused by: java.net.BindException: Address already in use: JVM_Bind <null>:8080
+	at org.apache.tomcat.util.net.JIoEndpoint.bind(JIoEndpoint.java:414)
+	at org.apache.tomcat.util.net.AbstractEndpoint.init(AbstractEndpoint.java:750)
+	at org.apache.coyote.AbstractProtocol.init(AbstractProtocol.java:467)
+	at org.apache.coyote.http11.AbstractHttp11JsseProtocol.init(AbstractHttp11JsseProtocol.java:119)
+	at org.apache.catalina.connector.Connector.initInternal(Connector.java:1030)
+	... 13 more
+Caused by: java.net.BindException: Address already in use: JVM_Bind
+	at java.net.DualStackPlainSocketImpl.bind0(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketBind(DualStackPlainSocketImpl.java:102)
+	at java.net.AbstractPlainSocketImpl.bind(AbstractPlainSocketImpl.java:513)
+	at java.net.PlainSocketImpl.bind(PlainSocketImpl.java:180)
+	at java.net.ServerSocket.bind(ServerSocket.java:375)
+	at java.net.ServerSocket.<init>(ServerSocket.java:237)
+	at java.net.ServerSocket.<init>(ServerSocket.java:181)
+	at org.apache.tomcat.util.net.DefaultServerSocketFactory.createSocket(DefaultServerSocketFactory.java:49)
+	at org.apache.tomcat.util.net.JIoEndpoint.bind(JIoEndpoint.java:401)
+	... 17 more
+
+Ağu 28, 2020 9:44:59 AM org.apache.catalina.startup.Catalina load
+INFO: Initialization processed in 568 ms
+Ağu 28, 2020 9:44:59 AM org.apache.catalina.core.StandardService startInternal
+INFO: Starting service [Catalina]
+Ağu 28, 2020 9:44:59 AM org.apache.catalina.core.StandardEngine startInternal
+INFO: Starting Servlet Engine: Apache Tomcat/7.0.105
+Ağu 28, 2020 9:44:59 AM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory [C:\xampp\tomcat\webapps\docs]
+Ağu 28, 2020 9:44:59 AM org.apache.catalina.util.SessionIdGeneratorBase createSecureRandom
+WARNING: Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [120] milliseconds.
+Ağu 28, 2020 9:44:59 AM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deployment of web application directory [C:\xampp\tomcat\webapps\docs] has finished in [321] ms
+Ağu 28, 2020 9:44:59 AM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory [C:\xampp\tomcat\webapps\examples]
+Ağu 28, 2020 9:45:00 AM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deployment of web application directory [C:\xampp\tomcat\webapps\examples] has finished in [403] ms
+Ağu 28, 2020 9:45:00 AM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory [C:\xampp\tomcat\webapps\host-manager]
+Ağu 28, 2020 9:45:00 AM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deployment of web application directory [C:\xampp\tomcat\webapps\host-manager] has finished in [43] ms
+Ağu 28, 2020 9:45:00 AM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory [C:\xampp\tomcat\webapps\manager]
+Ağu 28, 2020 9:45:00 AM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deployment of web application directory [C:\xampp\tomcat\webapps\manager] has finished in [42] ms
+Ağu 28, 2020 9:45:00 AM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory [C:\xampp\tomcat\webapps\ROOT]
+Ağu 28, 2020 9:45:00 AM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deployment of web application directory [C:\xampp\tomcat\webapps\ROOT] has finished in [26] ms
+Ağu 28, 2020 9:45:00 AM org.apache.catalina.startup.Catalina start
+INFO: Server startup in 864 ms
+Ağu 28, 2020 9:45:00 AM org.apache.catalina.core.StandardServer await
+SEVERE: StandardServer.await: create[localhost:8005]: 
+java.net.BindException: Address already in use: JVM_Bind
+	at java.net.DualStackPlainSocketImpl.bind0(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketBind(DualStackPlainSocketImpl.java:102)
+	at java.net.AbstractPlainSocketImpl.bind(AbstractPlainSocketImpl.java:513)
+	at java.net.PlainSocketImpl.bind(PlainSocketImpl.java:180)
+	at java.net.ServerSocket.bind(ServerSocket.java:375)
+	at java.net.ServerSocket.<init>(ServerSocket.java:237)
+	at org.apache.catalina.core.StandardServer.await(StandardServer.java:428)
+	at org.apache.catalina.startup.Catalina.await(Catalina.java:800)
+	at org.apache.catalina.startup.Catalina.start(Catalina.java:746)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.catalina.startup.Bootstrap.start(Bootstrap.java:284)
+	at org.apache.catalina.startup.Bootstrap.main(Bootstrap.java:415)
+
+Ağu 28, 2020 9:45:00 AM org.apache.coyote.AbstractProtocol pause
+INFO: Pausing ProtocolHandler ["http-bio-8080"]
+Ağu 28, 2020 9:45:00 AM org.apache.catalina.core.StandardService stopInternal
+INFO: Stopping service [Catalina]
+Ağu 28, 2020 9:45:00 AM org.apache.coyote.AbstractProtocol stop
+INFO: Stopping ProtocolHandler ["http-bio-8080"]
+Ağu 28, 2020 9:45:00 AM org.apache.coyote.AbstractProtocol destroy
+INFO: Destroying ProtocolHandler ["http-bio-8080"]
+Ağu 28, 2020 9:45:12 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Server version name:   Apache Tomcat/7.0.105
+Ağu 28, 2020 9:45:12 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Server built:          Jul 2 2020 12:25:26 UTC
+Ağu 28, 2020 9:45:12 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Server version number: 7.0.105.0
+Ağu 28, 2020 9:45:12 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: OS Name:               Windows 10
+Ağu 28, 2020 9:45:12 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: OS Version:            10.0
+Ağu 28, 2020 9:45:12 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Architecture:          amd64
+Ağu 28, 2020 9:45:12 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Java Home:             C:\Program Files\Java\jdk1.8.0_261\jre
+Ağu 28, 2020 9:45:12 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: JVM Version:           1.8.0_261-b12
+Ağu 28, 2020 9:45:12 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: JVM Vendor:            Oracle Corporation
+Ağu 28, 2020 9:45:12 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: CATALINA_BASE:         C:\xampp\tomcat
+Ağu 28, 2020 9:45:12 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: CATALINA_HOME:         C:\xampp\tomcat
+Ağu 28, 2020 9:45:12 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Djava.util.logging.config.file=C:\xampp\tomcat\conf\logging.properties
+Ağu 28, 2020 9:45:12 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+Ağu 28, 2020 9:45:12 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+Ağu 28, 2020 9:45:12 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Dignore.endorsed.dirs=
+Ağu 28, 2020 9:45:12 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Dcatalina.base=C:\xampp\tomcat
+Ağu 28, 2020 9:45:12 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Dcatalina.home=C:\xampp\tomcat
+Ağu 28, 2020 9:45:12 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Djava.io.tmpdir=C:\xampp\tomcat\temp
+Ağu 28, 2020 9:45:12 AM org.apache.catalina.core.AprLifecycleListener lifecycleEvent
+INFO: The Apache Tomcat Native library which allows using OpenSSL was not found on the java.library.path: [C:\Program Files\Java\jdk1.8.0_261\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Program Files (x86)\Java\jre1.8.0_261\bin---;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files\dotnet\;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\;C:\Program Files\Git\cmd;C:\Users\nihaSWin\AppData\Local\Microsoft\WindowsApps;C:\Program Files\JetBrains\PyCharm Community Edition 2020.1.2\bin;C:\Users\nihaSWin\AppData\Local\Programs\Python\Python37\Scripts;C:\Users\nihaSWin\AppData\Local\GitHubDesktop\bin;C:\Users\nihaSWin\.dotnet\tools;D:\flutter\bin;;.]
+Ağu 28, 2020 9:45:12 AM org.apache.coyote.AbstractProtocol init
+INFO: Initializing ProtocolHandler ["http-bio-8080"]
+Ağu 28, 2020 9:45:12 AM org.apache.coyote.AbstractProtocol init
+SEVERE: Failed to initialize end point associated with ProtocolHandler ["http-bio-8080"]
+java.net.BindException: Address already in use: JVM_Bind <null>:8080
+	at org.apache.tomcat.util.net.JIoEndpoint.bind(JIoEndpoint.java:414)
+	at org.apache.tomcat.util.net.AbstractEndpoint.init(AbstractEndpoint.java:750)
+	at org.apache.coyote.AbstractProtocol.init(AbstractProtocol.java:467)
+	at org.apache.coyote.http11.AbstractHttp11JsseProtocol.init(AbstractHttp11JsseProtocol.java:119)
+	at org.apache.catalina.connector.Connector.initInternal(Connector.java:1030)
+	at org.apache.catalina.util.LifecycleBase.init(LifecycleBase.java:136)
+	at org.apache.catalina.core.StandardService.initInternal(StandardService.java:560)
+	at org.apache.catalina.util.LifecycleBase.init(LifecycleBase.java:136)
+	at org.apache.catalina.core.StandardServer.initInternal(StandardServer.java:826)
+	at org.apache.catalina.util.LifecycleBase.init(LifecycleBase.java:136)
+	at org.apache.catalina.startup.Catalina.load(Catalina.java:663)
+	at org.apache.catalina.startup.Catalina.load(Catalina.java:686)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.catalina.startup.Bootstrap.load(Bootstrap.java:244)
+	at org.apache.catalina.startup.Bootstrap.main(Bootstrap.java:414)
+Caused by: java.net.BindException: Address already in use: JVM_Bind
+	at java.net.DualStackPlainSocketImpl.bind0(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketBind(DualStackPlainSocketImpl.java:102)
+	at java.net.AbstractPlainSocketImpl.bind(AbstractPlainSocketImpl.java:513)
+	at java.net.PlainSocketImpl.bind(PlainSocketImpl.java:180)
+	at java.net.ServerSocket.bind(ServerSocket.java:375)
+	at java.net.ServerSocket.<init>(ServerSocket.java:237)
+	at java.net.ServerSocket.<init>(ServerSocket.java:181)
+	at org.apache.tomcat.util.net.DefaultServerSocketFactory.createSocket(DefaultServerSocketFactory.java:49)
+	at org.apache.tomcat.util.net.JIoEndpoint.bind(JIoEndpoint.java:401)
+	... 17 more
+
+Ağu 28, 2020 9:45:12 AM org.apache.catalina.core.StandardService initInternal
+SEVERE: Failed to initialize connector [Connector[HTTP/1.1-8080]]
+org.apache.catalina.LifecycleException: Protocol handler initialization failed
+	at org.apache.catalina.connector.Connector.initInternal(Connector.java:1032)
+	at org.apache.catalina.util.LifecycleBase.init(LifecycleBase.java:136)
+	at org.apache.catalina.core.StandardService.initInternal(StandardService.java:560)
+	at org.apache.catalina.util.LifecycleBase.init(LifecycleBase.java:136)
+	at org.apache.catalina.core.StandardServer.initInternal(StandardServer.java:826)
+	at org.apache.catalina.util.LifecycleBase.init(LifecycleBase.java:136)
+	at org.apache.catalina.startup.Catalina.load(Catalina.java:663)
+	at org.apache.catalina.startup.Catalina.load(Catalina.java:686)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.catalina.startup.Bootstrap.load(Bootstrap.java:244)
+	at org.apache.catalina.startup.Bootstrap.main(Bootstrap.java:414)
+Caused by: java.net.BindException: Address already in use: JVM_Bind <null>:8080
+	at org.apache.tomcat.util.net.JIoEndpoint.bind(JIoEndpoint.java:414)
+	at org.apache.tomcat.util.net.AbstractEndpoint.init(AbstractEndpoint.java:750)
+	at org.apache.coyote.AbstractProtocol.init(AbstractProtocol.java:467)
+	at org.apache.coyote.http11.AbstractHttp11JsseProtocol.init(AbstractHttp11JsseProtocol.java:119)
+	at org.apache.catalina.connector.Connector.initInternal(Connector.java:1030)
+	... 13 more
+Caused by: java.net.BindException: Address already in use: JVM_Bind
+	at java.net.DualStackPlainSocketImpl.bind0(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketBind(DualStackPlainSocketImpl.java:102)
+	at java.net.AbstractPlainSocketImpl.bind(AbstractPlainSocketImpl.java:513)
+	at java.net.PlainSocketImpl.bind(PlainSocketImpl.java:180)
+	at java.net.ServerSocket.bind(ServerSocket.java:375)
+	at java.net.ServerSocket.<init>(ServerSocket.java:237)
+	at java.net.ServerSocket.<init>(ServerSocket.java:181)
+	at org.apache.tomcat.util.net.DefaultServerSocketFactory.createSocket(DefaultServerSocketFactory.java:49)
+	at org.apache.tomcat.util.net.JIoEndpoint.bind(JIoEndpoint.java:401)
+	... 17 more
+
+Ağu 28, 2020 9:45:12 AM org.apache.catalina.startup.Catalina load
+INFO: Initialization processed in 397 ms
+Ağu 28, 2020 9:45:12 AM org.apache.catalina.core.StandardService startInternal
+INFO: Starting service [Catalina]
+Ağu 28, 2020 9:45:12 AM org.apache.catalina.core.StandardEngine startInternal
+INFO: Starting Servlet Engine: Apache Tomcat/7.0.105
+Ağu 28, 2020 9:45:12 AM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory [C:\xampp\tomcat\webapps\docs]
+Ağu 28, 2020 9:45:13 AM org.apache.catalina.util.SessionIdGeneratorBase createSecureRandom
+WARNING: Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [120] milliseconds.
+Ağu 28, 2020 9:45:13 AM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deployment of web application directory [C:\xampp\tomcat\webapps\docs] has finished in [346] ms
+Ağu 28, 2020 9:45:13 AM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory [C:\xampp\tomcat\webapps\examples]
+Ağu 28, 2020 9:45:13 AM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deployment of web application directory [C:\xampp\tomcat\webapps\examples] has finished in [232] ms
+Ağu 28, 2020 9:45:13 AM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory [C:\xampp\tomcat\webapps\host-manager]
+Ağu 28, 2020 9:45:13 AM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deployment of web application directory [C:\xampp\tomcat\webapps\host-manager] has finished in [40] ms
+Ağu 28, 2020 9:45:13 AM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory [C:\xampp\tomcat\webapps\manager]
+Ağu 28, 2020 9:45:13 AM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deployment of web application directory [C:\xampp\tomcat\webapps\manager] has finished in [40] ms
+Ağu 28, 2020 9:45:13 AM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory [C:\xampp\tomcat\webapps\ROOT]
+Ağu 28, 2020 9:45:13 AM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deployment of web application directory [C:\xampp\tomcat\webapps\ROOT] has finished in [26] ms
+Ağu 28, 2020 9:45:13 AM org.apache.catalina.startup.Catalina start
+INFO: Server startup in 708 ms
+Ağu 28, 2020 9:45:13 AM org.apache.catalina.core.StandardServer await
+SEVERE: StandardServer.await: create[localhost:8005]: 
+java.net.BindException: Address already in use: JVM_Bind
+	at java.net.DualStackPlainSocketImpl.bind0(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketBind(DualStackPlainSocketImpl.java:102)
+	at java.net.AbstractPlainSocketImpl.bind(AbstractPlainSocketImpl.java:513)
+	at java.net.PlainSocketImpl.bind(PlainSocketImpl.java:180)
+	at java.net.ServerSocket.bind(ServerSocket.java:375)
+	at java.net.ServerSocket.<init>(ServerSocket.java:237)
+	at org.apache.catalina.core.StandardServer.await(StandardServer.java:428)
+	at org.apache.catalina.startup.Catalina.await(Catalina.java:800)
+	at org.apache.catalina.startup.Catalina.start(Catalina.java:746)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.catalina.startup.Bootstrap.start(Bootstrap.java:284)
+	at org.apache.catalina.startup.Bootstrap.main(Bootstrap.java:415)
+
+Ağu 28, 2020 9:45:13 AM org.apache.coyote.AbstractProtocol pause
+INFO: Pausing ProtocolHandler ["http-bio-8080"]
+Ağu 28, 2020 9:45:13 AM org.apache.catalina.core.StandardService stopInternal
+INFO: Stopping service [Catalina]
+Ağu 28, 2020 9:45:13 AM org.apache.coyote.AbstractProtocol stop
+INFO: Stopping ProtocolHandler ["http-bio-8080"]
+Ağu 28, 2020 9:45:13 AM org.apache.coyote.AbstractProtocol destroy
+INFO: Destroying ProtocolHandler ["http-bio-8080"]
+Ağu 28, 2020 9:45:44 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Server version name:   Apache Tomcat/7.0.105
+Ağu 28, 2020 9:45:44 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Server built:          Jul 2 2020 12:25:26 UTC
+Ağu 28, 2020 9:45:44 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Server version number: 7.0.105.0
+Ağu 28, 2020 9:45:44 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: OS Name:               Windows 10
+Ağu 28, 2020 9:45:44 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: OS Version:            10.0
+Ağu 28, 2020 9:45:44 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Architecture:          amd64
+Ağu 28, 2020 9:45:44 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Java Home:             C:\Program Files\Java\jdk1.8.0_261\jre
+Ağu 28, 2020 9:45:44 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: JVM Version:           1.8.0_261-b12
+Ağu 28, 2020 9:45:44 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: JVM Vendor:            Oracle Corporation
+Ağu 28, 2020 9:45:44 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: CATALINA_BASE:         C:\xampp\tomcat
+Ağu 28, 2020 9:45:44 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: CATALINA_HOME:         C:\xampp\tomcat
+Ağu 28, 2020 9:45:44 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Djava.util.logging.config.file=C:\xampp\tomcat\conf\logging.properties
+Ağu 28, 2020 9:45:44 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+Ağu 28, 2020 9:45:44 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+Ağu 28, 2020 9:45:44 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Dignore.endorsed.dirs=
+Ağu 28, 2020 9:45:44 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Dcatalina.base=C:\xampp\tomcat
+Ağu 28, 2020 9:45:44 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Dcatalina.home=C:\xampp\tomcat
+Ağu 28, 2020 9:45:44 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Djava.io.tmpdir=C:\xampp\tomcat\temp
+Ağu 28, 2020 9:45:44 AM org.apache.catalina.core.AprLifecycleListener lifecycleEvent
+INFO: The Apache Tomcat Native library which allows using OpenSSL was not found on the java.library.path: [C:\Program Files\Java\jdk1.8.0_261\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Program Files (x86)\Java\jre1.8.0_261\bin---;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files\dotnet\;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\;C:\Program Files\Git\cmd;C:\Users\nihaSWin\AppData\Local\Microsoft\WindowsApps;C:\Program Files\JetBrains\PyCharm Community Edition 2020.1.2\bin;C:\Users\nihaSWin\AppData\Local\Programs\Python\Python37\Scripts;C:\Users\nihaSWin\AppData\Local\GitHubDesktop\bin;C:\Users\nihaSWin\.dotnet\tools;D:\flutter\bin;;.]
+Ağu 28, 2020 9:45:44 AM org.apache.coyote.AbstractProtocol init
+INFO: Initializing ProtocolHandler ["http-bio-8080"]
+Ağu 28, 2020 9:45:44 AM org.apache.catalina.startup.Catalina load
+INFO: Initialization processed in 368 ms
+Ağu 28, 2020 9:45:44 AM org.apache.catalina.core.StandardService startInternal
+INFO: Starting service [Catalina]
+Ağu 28, 2020 9:45:44 AM org.apache.catalina.core.StandardEngine startInternal
+INFO: Starting Servlet Engine: Apache Tomcat/7.0.105
+Ağu 28, 2020 9:45:44 AM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory [C:\xampp\tomcat\webapps\docs]
+Ağu 28, 2020 9:45:45 AM org.apache.catalina.util.SessionIdGeneratorBase createSecureRandom
+WARNING: Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [110] milliseconds.
+Ağu 28, 2020 9:45:45 AM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deployment of web application directory [C:\xampp\tomcat\webapps\docs] has finished in [275] ms
+Ağu 28, 2020 9:45:45 AM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory [C:\xampp\tomcat\webapps\examples]
+Ağu 28, 2020 9:45:45 AM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deployment of web application directory [C:\xampp\tomcat\webapps\examples] has finished in [203] ms
+Ağu 28, 2020 9:45:45 AM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory [C:\xampp\tomcat\webapps\host-manager]
+Ağu 28, 2020 9:45:45 AM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deployment of web application directory [C:\xampp\tomcat\webapps\host-manager] has finished in [34] ms
+Ağu 28, 2020 9:45:45 AM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory [C:\xampp\tomcat\webapps\manager]
+Ağu 28, 2020 9:45:45 AM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deployment of web application directory [C:\xampp\tomcat\webapps\manager] has finished in [37] ms
+Ağu 28, 2020 9:45:45 AM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory [C:\xampp\tomcat\webapps\ROOT]
+Ağu 28, 2020 9:45:45 AM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deployment of web application directory [C:\xampp\tomcat\webapps\ROOT] has finished in [28] ms
+Ağu 28, 2020 9:45:45 AM org.apache.coyote.AbstractProtocol start
+INFO: Starting ProtocolHandler ["http-bio-8080"]
+Ağu 28, 2020 9:45:45 AM org.apache.catalina.startup.Catalina start
+INFO: Server startup in 608 ms
+Ağu 28, 2020 9:46:33 AM org.apache.catalina.core.StandardServer await
+INFO: A valid shutdown command was received via the shutdown port. Stopping the Server instance.
+Ağu 28, 2020 9:46:33 AM org.apache.coyote.AbstractProtocol pause
+INFO: Pausing ProtocolHandler ["http-bio-8080"]
+Ağu 28, 2020 9:46:33 AM org.apache.catalina.core.StandardService stopInternal
+INFO: Stopping service [Catalina]
+Ağu 28, 2020 9:46:33 AM org.apache.coyote.AbstractProtocol stop
+INFO: Stopping ProtocolHandler ["http-bio-8080"]
+Ağu 28, 2020 9:46:33 AM org.apache.coyote.AbstractProtocol destroy
+INFO: Destroying ProtocolHandler ["http-bio-8080"]
+Ağu 28, 2020 10:04:26 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Server version name:   Apache Tomcat/7.0.105
+Ağu 28, 2020 10:04:26 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Server built:          Jul 2 2020 12:25:26 UTC
+Ağu 28, 2020 10:04:26 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Server version number: 7.0.105.0
+Ağu 28, 2020 10:04:26 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: OS Name:               Windows 10
+Ağu 28, 2020 10:04:26 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: OS Version:            10.0
+Ağu 28, 2020 10:04:26 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Architecture:          amd64
+Ağu 28, 2020 10:04:26 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Java Home:             C:\Program Files\Java\jdk1.8.0_261\jre
+Ağu 28, 2020 10:04:26 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: JVM Version:           1.8.0_261-b12
+Ağu 28, 2020 10:04:26 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: JVM Vendor:            Oracle Corporation
+Ağu 28, 2020 10:04:26 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: CATALINA_BASE:         C:\xampp\tomcat
+Ağu 28, 2020 10:04:26 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: CATALINA_HOME:         C:\xampp\tomcat
+Ağu 28, 2020 10:04:26 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Djava.util.logging.config.file=C:\xampp\tomcat\conf\logging.properties
+Ağu 28, 2020 10:04:26 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+Ağu 28, 2020 10:04:26 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+Ağu 28, 2020 10:04:26 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Dignore.endorsed.dirs=
+Ağu 28, 2020 10:04:26 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Dcatalina.base=C:\xampp\tomcat
+Ağu 28, 2020 10:04:26 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Dcatalina.home=C:\xampp\tomcat
+Ağu 28, 2020 10:04:26 AM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Djava.io.tmpdir=C:\xampp\tomcat\temp
+Ağu 28, 2020 10:04:26 AM org.apache.catalina.core.AprLifecycleListener lifecycleEvent
+INFO: The Apache Tomcat Native library which allows using OpenSSL was not found on the java.library.path: [C:\Program Files\Java\jdk1.8.0_261\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Program Files (x86)\Java\jre1.8.0_261\bin---;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files\dotnet\;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\;C:\Program Files\Git\cmd;C:\Users\nihaSWin\AppData\Local\Microsoft\WindowsApps;C:\Program Files\JetBrains\PyCharm Community Edition 2020.1.2\bin;C:\Users\nihaSWin\AppData\Local\Programs\Python\Python37\Scripts;C:\Users\nihaSWin\AppData\Local\GitHubDesktop\bin;C:\Users\nihaSWin\.dotnet\tools;D:\flutter\bin;;.]
+Ağu 28, 2020 10:04:26 AM org.apache.coyote.AbstractProtocol init
+INFO: Initializing ProtocolHandler ["http-bio-8080"]
+Ağu 28, 2020 10:04:26 AM org.apache.catalina.startup.Catalina load
+INFO: Initialization processed in 419 ms
+Ağu 28, 2020 10:04:26 AM org.apache.catalina.core.StandardService startInternal
+INFO: Starting service [Catalina]
+Ağu 28, 2020 10:04:26 AM org.apache.catalina.core.StandardEngine startInternal
+INFO: Starting Servlet Engine: Apache Tomcat/7.0.105
+Ağu 28, 2020 10:04:26 AM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory [C:\xampp\tomcat\webapps\docs]
+Ağu 28, 2020 10:04:26 AM org.apache.catalina.util.SessionIdGeneratorBase createSecureRandom
+WARNING: Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [122] milliseconds.
+Ağu 28, 2020 10:04:26 AM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deployment of web application directory [C:\xampp\tomcat\webapps\docs] has finished in [317] ms
+Ağu 28, 2020 10:04:26 AM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory [C:\xampp\tomcat\webapps\examples]
+Ağu 28, 2020 10:04:27 AM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deployment of web application directory [C:\xampp\tomcat\webapps\examples] has finished in [219] ms
+Ağu 28, 2020 10:04:27 AM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory [C:\xampp\tomcat\webapps\host-manager]
+Ağu 28, 2020 10:04:27 AM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deployment of web application directory [C:\xampp\tomcat\webapps\host-manager] has finished in [43] ms
+Ağu 28, 2020 10:04:27 AM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory [C:\xampp\tomcat\webapps\manager]
+Ağu 28, 2020 10:04:27 AM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deployment of web application directory [C:\xampp\tomcat\webapps\manager] has finished in [37] ms
+Ağu 28, 2020 10:04:27 AM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory [C:\xampp\tomcat\webapps\ROOT]
+Ağu 28, 2020 10:04:27 AM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deployment of web application directory [C:\xampp\tomcat\webapps\ROOT] has finished in [29] ms
+Ağu 28, 2020 10:04:27 AM org.apache.coyote.AbstractProtocol start
+INFO: Starting ProtocolHandler ["http-bio-8080"]
+Ağu 28, 2020 10:04:27 AM org.apache.catalina.startup.Catalina start
+INFO: Server startup in 673 ms
+Ağu 28, 2020 10:07:17 AM org.apache.catalina.core.StandardServer await
+INFO: A valid shutdown command was received via the shutdown port. Stopping the Server instance.
+Ağu 28, 2020 10:07:17 AM org.apache.coyote.AbstractProtocol pause
+INFO: Pausing ProtocolHandler ["http-bio-8080"]
+Ağu 28, 2020 10:07:17 AM org.apache.catalina.core.StandardService stopInternal
+INFO: Stopping service [Catalina]
+Ağu 28, 2020 10:07:17 AM org.apache.coyote.AbstractProtocol stop
+INFO: Stopping ProtocolHandler ["http-bio-8080"]
+Ağu 28, 2020 10:07:17 AM org.apache.coyote.AbstractProtocol destroy
+INFO: Destroying ProtocolHandler ["http-bio-8080"]

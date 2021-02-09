@@ -1,0 +1,538 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:h="http://java.sun.com/jsf/html"
+  xmlns:f="http://java.sun.com/jsf/core"
+  xmlns:c="http://java.sun.com/jsp/jstl/core"
+  xmlns:ui="http://java.sun.com/jsf/facelets">
+	<h:head>
+		<link type="text/css" rel="stylesheet" href="/FRCweb/pages.css"/>
+		<script src="https://kit.fontawesome.com/60d7967167.js" ></script>
+	</h:head>
+	<h:body>
+	#{global.init()}
+		<div class="index_topbot"></div>
+
+		<div id="hpage_nav" class="centered">
+			<div class="container">
+				<ul>
+					<li><h:outputLink value="index.xhtml?faces-redirect=true" class="logo">FRCticket</h:outputLink></li>
+					<li><h:outputLink value="communication.xhtml?faces-redirect=true">İletişim</h:outputLink></li>
+					<li><h:outputLink value="help.xhtml?faces-redirect=true">Yardım</h:outputLink></li>
+					<li><span class="navinfo">#{index.tel}</span></li>
+					<li><span class="navinfo">#{index.mail}</span></li>
+					<li>
+   					<h:form id="src">
+   					<div id="box">
+       					<h:inputText value="#{search.srcInput}" styleClass="search"/>
+       					<div><i onclick="document.getElementById('src:git').click();" class="fa fa-search"></i></div>
+     					<h:commandButton id="git" style="display:none" action="search.xhtml"/>
+   					</div>
+   					</h:form>
+   					</li>
+   					<c:choose> 
+   						<c:when test="#{login.logged}">
+							<h:outputText value="&lt;li onclick=&quot;cikisyap();&quot; style=&quot;float: right;cursor:pointer&quot;&gt;&lt;a &gt;&lt;i class=&quot;fa fa-user&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt; Çıkış&lt;/a&gt;&lt;/li&gt;" escape="false"/>
+						</c:when>
+						<c:otherwise>
+							<h:outputText value="&lt;li style=&quot;float: right;&quot;&gt;&lt;a href=&quot;sign-up.xhtml?faces-redirect=true&quot;&gt;&lt;i class=&quot;fa fa-user&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt; Kayıt Ol&lt;/a&gt;&lt;/li&gt;" escape="false"/>
+							<h:outputText value="&lt;li style=&quot;float: right;&quot;&gt;&lt;a href=&quot;login.xhtml?faces-redirect=true&quot;&gt;&lt;i class=&quot;fa fa-user&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt; Giriş Yap&lt;/a&gt;&lt;/li&gt;" escape="false"/>
+						</c:otherwise>
+					</c:choose>
+				</ul>
+				
+			</div>
+		</div>
+		<div id="hpage_discover" class="centered">
+			<div class="container">
+				<h:form>
+					
+						<ul>
+							<li>
+								<span><i class="fa fa-eye fa-2x" aria-hidden="true"></i></span>
+	  							<h:selectOneMenu id="hpage_categori" value="#{search.kategori}">
+	  								<f:selectItem itemLabel="Tüm Kategoriler" itemValue="tumktg"/>
+	  								<f:selectItems value="#{index.kategoriList}" var="x" itemValue="#{x}" itemLabel="#{x}"/>
+	    						</h:selectOneMenu>
+							</li>
+							<li>
+								<span><i class="fa fa-calendar-o fa-2x" aria-hidden="true"></i></span>
+	  							<h:selectOneMenu value="#{search.tarih}" id="hpage_tarih" >
+		  							<f:selectItem itemValue="tum" itemLabel="Tüm Tarihler"/>
+		  							<f:selectItem itemValue="bugun" itemLabel="Bugün"/>
+		  							<f:selectItem itemValue="bhafta" itemLabel="Bu Hafta İçerisinde"/>
+		  							<f:selectItem itemValue="o30g" itemLabel="Bu Ay İçerisinde"/>	
+	  							</h:selectOneMenu>
+	
+							</li>
+							<li>
+								<span><i class="fa fa-map-marker fa-2x" aria-hidden="true"></i></span>
+	  							<h:selectOneMenu value="#{search.il}" id="hpage_yer" >
+		  							<f:selectItem itemValue="tum" itemLabel="Tüm Türkiye"/>
+		  							<f:selectItems itemValue="#{x}" itemLabel="#{x}" value="#{index.ilList}" var="x"/>
+	  							</h:selectOneMenu>
+							</li>
+							<li>
+								<h:commandButton id="git" styleClass="blue-button" value="Git" action="search.xhtml"/>
+							</li>
+						</ul>
+					</h:form>
+			</div>
+		</div>
+		<div class="index_body">
+		
+		<div class="index_container ">
+			<div class="slider">
+				<div class="slider-container">
+					<ui:repeat var="x" value="#{index.slideList}">
+							<div id="id#{x[0]}" class="slide">
+								<h:graphicImage value="#{x[3]}"/>
+								<div class="slide-title title-out"><h1>#{x[1]}</h1></div>
+								<div class="slide-sub-title title-out"><h2>#{x[2]}</h2></div>
+							</div>
+					</ui:repeat>
+				</div>
+				<div class="slides">
+					<ui:repeat var="x" value="#{index.slideList}">
+						<div id="id#{x[0]}" onclick="smallclicked(this.id);" class="small-slide ">
+							<h:graphicImage value="#{x[3]}"/>
+						</div>
+					</ui:repeat>
+				</div>
+				<i class="fas fa-angle-left fa-2x"></i>
+				<i style="left:675px;box-shadow: -2px 4px 4px 0px rgb(0,0,0,0.4);" class="fas fa-angle-right fa-2x"></i>
+				
+			</div>
+			<ui:repeat var="x" value="#{index.reklamList}">
+			<h:outputLink value="#{x[1]}">
+				<div class="banner">
+					<h:graphicImage value="#{x[2]}"></h:graphicImage>
+				</div>
+			</h:outputLink>
+			</ui:repeat>
+			
+			<div  class="grouping">
+				<h2 class="std-title">En Çok Tıklananlar</h2>
+				<ui:repeat var="x" value="#{index.tiklananList}">
+				<h:outputLink value="event.xhtml?faces-redirect=true&amp;id=#{x[0]}">
+					<div class="eventdiv">
+						<h:graphicImage value="#{x[3]}"></h:graphicImage>
+						<h4>#{x[1]}</h4>
+					</div>
+				</h:outputLink>
+				</ui:repeat>
+					
+			</div>
+			<div class="show" onclick="show(0);">Daha Fazla</div>
+			<div class="grouping">
+				<h2 class="std-title">En Yeniler</h2>
+				<ui:repeat var="x" value="#{index.yeniList}">
+				<h:outputLink value="event.xhtml?faces-redirect=true&amp;id=#{x[0]}">
+					<div class="eventdiv">
+						<h:graphicImage value="#{x[3]}"></h:graphicImage>
+						<h4>#{x[1]}</h4>
+					</div>
+				</h:outputLink>
+				</ui:repeat>
+			</div>
+			<div class="show" onclick="show(1);">Daha Fazla</div>
+			<div class="grouping">
+				<h2 class="std-title">Hiç Satılmayanlar</h2>
+				<ui:repeat var="x" value="#{index.alinmayanList}">
+				<h:outputLink value="event.xhtml?faces-redirect=true&amp;id=#{x[0]}">
+					<div class="eventdiv">
+						<h:graphicImage value="#{x[3]}"></h:graphicImage>
+						<h4>#{x[1]}</h4>
+					</div>
+				</h:outputLink>
+				</ui:repeat>
+			</div>
+			<div class="show" onclick="show(2);">Daha Fazla</div>
+			
+			<h2 class="hot-ticket-header">
+				Hot Tickets
+			</h2>
+			<div id="deneme" class="hot-ticket">
+				<h:dataTable var="x" value="#{index.hotList}"
+				columnClasses="date,title,date,title">
+					<h:column>
+						<h:outputLink value="event.xhtml?faces-redirect=true&amp;id=#{x[0]}">
+							<span class="daydate">#{x[4]}</span>
+							<span class="day">#{index.convertDay(x[4],x[3],x[2])}</span>
+							<span class="month">#{x[3]}</span>
+							<span class="year">#{x[2]}</span>
+						</h:outputLink>
+					</h:column>
+					<h:column>
+						<h:outputLink value="event.xhtml?faces-redirect=true&amp;id=#{x[0]}">
+							<h:outputText value="#{x[1]}" styleClass="event-title"/>
+						</h:outputLink>
+					</h:column>
+					<h:column>
+						<h:outputLink value="event.xhtml?faces-redirect=true&amp;id=#{x[5]}">
+							<span class="daydate">#{x[9]}</span>
+							<span class="day">#{index.convertDay(x[9],x[8],x[7])}</span>
+							<span class="month">#{x[8]}</span>
+							<span class="year">#{x[7]}</span>
+						</h:outputLink>
+					</h:column>
+					<h:column>
+						<h:outputLink value="event.xhtml?faces-redirect=true&amp;id=#{x[5]}">
+							<h:outputText value="#{x[6]}" styleClass="event-title"/>
+						</h:outputLink>
+					</h:column>
+				</h:dataTable>
+				
+			</div>
+		</div>
+		</div>
+		<div style="height:130px;" class="index_topbot">
+			<div class="index-bot-container">
+				<span class="social-title">BİZİ TAKİP EDİN</span>
+				<div class="social">
+					<a href="#{index.facebook}" style="margin-left:0px;" class="fa fa-facebook-square fa-3x"></a>
+					<a href="#{index.youtube}" class="fa fa-youtube-square fa-3x"></a>
+					<a href="#{index.instagram}" class="fab fa-instagram-square fa-3x"></a>
+					<a href="#{index.twitter}" class="fa fa-twitter-square fa-3x"></a>
+				</div>
+				<span class="rights">©    2020 Bu sitedeki tüm haklar saklıdır. Bu web sitesinin kullanımı, ticari kullanımı engelleyen Kullanım Koşulları'na tabidir. Bu sayfayı geçtiğinizde bu koşulları kabul etmiş sayılırsınız.</span>
+			</div>
+			<h:form id="logout">
+				<h:commandButton id="button" action="index.xhtml?faces-redirect=true" style="display:none"></h:commandButton>
+				<h:inputHidden id="logoutval" value="#{login.logged}"/>
+			</h:form>
+		</div>
+		<script>
+			var slidercont=document.getElementsByClassName("slider-container")[0];
+			var slide=slidercont.firstElementChild;
+			var prevslide=slidercont.lastElementChild;
+			var nextslide=slide.nextElementSibling;
+			var slides=document.getElementsByClassName("slides")[0];
+			var smallslide=slides.firstElementChild;
+			var mouseOnSlide=false;
+			slide.className+=" disp-block";
+			prevslide.className+=" prevslide";
+			nextslide.className+=" nextslide";
+			smallslide.className+=" small-selected";
+			var left=document.getElementsByClassName("fa-angle-left")[0];
+			var right= left.nextElementSibling;
+			var isrunning=false;
+			var slideList=slidercont.children;
+			var subtitle=slidercont.firstElementChild.lastElementChild;
+			var title=subtitle.previousElementSibling;
+			title.className="slide-title";
+			subtitle.className="slide-sub-title";
+			function slideclick(id){
+				if(id!=="")
+					window.location.href="event.xhtml?id="+id;
+			}
+			for(var i=0;i&lt;slideList.length;i++) {
+				var id=slideList[i].id.substr(2);
+				slideList[i].addEventListener("click",slideclick.bind(this,id));
+			}
+			
+			function autoslide(){
+				if(!isrunning){					
+					var slide=document.querySelector(".slide.disp-block");
+					var prevslide=document.querySelector(".slide.prevslide");
+					var nextslide=document.querySelector(".slide.nextslide");
+					var smallslide=document.querySelector(".small-slide.small-selected");
+					var subtitle=slide.lastElementChild;
+					var title=subtitle.previousElementSibling;
+					var nextsubtitle=nextslide.lastElementChild;
+					var nexttitle=nextsubtitle.previousElementSibling;
+					var nexttemp;
+					var x=0;
+					var time2=setInterval(autoslide2,500);
+					function autoslide2(){
+						if(x===0){
+							isrunning=true;
+							title.className="slide-title title-out";
+							subtitle.className="slide-sub-title title-out";
+							prevslide.className="slide";
+							slide.className="slide inoutslide disp-block";
+							nexttemp=nextslide.nextElementSibling;
+							if(nexttemp===null)
+								nexttemp=nextslide.parentElement.firstElementChild;
+							nexttemp.className="slide nextslide";
+							
+						}
+						else if(x===1){
+							slide.className="slide prevslide disp-block";
+							nextslide.className="slide nextslide disp-block";
+	
+						}
+						else if(x===2){
+							slide.className="slide prevslide";
+							nextslide.className="slide inoutslide disp-block";
+							var nextsmalltemp=smallslide.nextElementSibling;
+							if(nextsmalltemp===null)
+								nextsmalltemp=smallslide.parentElement.firstElementChild;
+							nextsmalltemp.className+=" small-selected";
+							smallslide.className="small-slide";
+						}
+						else if(x===3){
+							nextslide.className="slide disp-block";
+						}
+						else{
+							nexttitle.className="slide-title";
+							nextsubtitle.className="slide-sub-title";
+							clearInterval(time2);
+							isrunning=false;
+							if(!mouseOnSlide)
+								slidesout();
+							else
+								slidesin();
+						}
+						x+=1;
+					}
+				}
+			}
+			var time=setInterval(autoslide,15000);
+			function fleft(){
+				if(!isrunning){
+					clearInterval(time);
+					time=setInterval(autoslide,15000);
+					slidesin(0);
+					var slide=document.querySelector(".slide.disp-block");
+					var prevslide=document.querySelector(".slide.prevslide");
+					var nextslide=document.querySelector(".slide.nextslide");
+					var smallslide=document.querySelector(".small-slide.small-selected");
+					var subtitle=slide.lastElementChild;
+					var title=subtitle.previousElementSibling;
+					var prevsubtitle=prevslide.lastElementChild;
+					var prevtitle=prevsubtitle.previousElementSibling;
+					var prevtemp;
+					var x=0;
+					autoslide2();
+					var time2=setInterval(autoslide2,600);
+					function autoslide2(){
+						if(x===0){
+							isrunning=true;
+							nextslide.className="slide";
+							title.className="slide-title title-out";
+							subtitle.className="slide-sub-title title-out";
+							slide.className="slide inoutslide disp-block";
+							prevtemp=prevslide.previousElementSibling;
+							if(prevtemp===null)
+								prevtemp=prevslide.parentElement.lastElementChild;
+							prevtemp.className="slide prevslide";
+							
+						}
+						else if(x===1){
+							slide.className="slide nextslide disp-block";
+
+						}
+						else if(x===2){
+							slide.className="slide nextslide";
+							prevslide.className="slide prevslide disp-block";
+							setTimeout(function(){prevslide.className="slide inoutslide disp-block";},100);
+							var prevsmalltemp=smallslide.previousElementSibling;
+							if(prevsmalltemp===null)
+								prevsmalltemp=smallslide.parentElement.lastElementChild;
+							prevsmalltemp.className+=" small-selected";
+							smallslide.className="small-slide";
+						}
+						else if(x===3){
+							prevslide.className="slide disp-block";
+							
+						}
+						else{
+							prevtitle.className="slide-title";
+							prevsubtitle.className="slide-sub-title";
+							
+							isrunning=false;
+							clearInterval(time2);
+							if(!mouseOnSlide)
+								slidesout();
+						}
+						x+=1;
+					}
+				}
+			}
+			function fright(){
+				if(!isrunning){
+					clearInterval(time);
+					time=setInterval(autoslide,15000);
+					slidesin();
+					var slide=document.querySelector(".slide.disp-block");
+					var prevslide=document.querySelector(".slide.prevslide");
+					var nextslide=document.querySelector(".slide.nextslide");
+					var smallslide=document.querySelector(".small-slide.small-selected");
+					var subtitle=slide.lastElementChild;
+					var title=subtitle.previousElementSibling;
+					var nextsubtitle=nextslide.lastElementChild;
+					var nexttitle=nextsubtitle.previousElementSibling;
+					var nexttemp;
+					var x=0;
+					autoslide2();
+					var time2=setInterval(autoslide2,600);
+					function autoslide2(){
+						if(x===0){
+							isrunning=true;
+							title.className="slide-title title-out";
+							subtitle.className="slide-sub-title title-out";
+							prevslide.className="slide";
+							slide.className="slide inoutslide disp-block";
+							nexttemp=nextslide.nextElementSibling;
+							if(nexttemp===null)
+								nexttemp=nextslide.parentElement.firstElementChild;
+							nexttemp.className="slide nextslide";
+							
+						}
+						else if(x===1){
+							slide.className="slide prevslide disp-block";
+
+						}
+						else if(x===2){
+							slide.className="slide prevslide";
+							nextslide.className="slide nextslide disp-block";
+							setTimeout(function(){nextslide.className="slide inoutslide disp-block";},100);
+							var nextsmalltemp=smallslide.nextElementSibling;
+							if(nextsmalltemp===null)
+								nextsmalltemp=smallslide.parentElement.firstElementChild;
+							nextsmalltemp.className+=" small-selected";
+							smallslide.className="small-slide";
+						}
+						else if(x===3){
+							nextslide.className="slide disp-block";
+						}
+						else{
+							nexttitle.className="slide-title";
+							nextsubtitle.className="slide-sub-title";
+							isrunning=false;
+							clearInterval(time2);
+							if(!mouseOnSlide)
+								slidesout();
+						}
+						x+=1;
+					}
+				}
+			}
+			left.onclick=fleft;
+			right.onclick=fright;
+			var slidesin=function(){
+				if(!isrunning){
+				slides.className="slides slides-in";
+				}
+			}
+			var slidesout=function(){
+				if(!isrunning){
+				slides.className="slides slides-out";	
+				}
+			}
+			slidercont.onmouseover=slidesin;
+			slidercont.onmouseout=slidesout;
+			slides.onmouseover=slidesin;
+			slides.onmouseout=slidesout;
+			slidercont.addEventListener("mouseover",function(){mouseOnSlide=true;});
+			slidercont.addEventListener("mouseout",function(){mouseOnSlide=false;});
+			slides.addEventListener("mouseover",function(){mouseOnSlide=true;});
+			slides.addEventListener("mouseout",function(){mouseOnSlide=false;});
+			
+			function smallclicked(id){
+				if(id!="id" &amp;&amp; !isrunning){
+					var idtosmall=document.querySelector("#"+id+".small-slide");
+					var idtoslide=document.querySelector("#"+id+".slide");
+
+					var slide=document.querySelector(".slide.disp-block");
+					var prevslide=document.querySelector(".slide.prevslide");
+					var nextslide=document.querySelector(".slide.nextslide");
+					var smallslide=document.querySelector(".small-slide.small-selected");
+					var nexttemp;
+					var subtitle=slide.lastElementChild;
+					var title=subtitle.previousElementSibling;
+					var nextsubtitle;
+					var nexttitle;
+					var x=0;
+					
+					if(smallslide===idtosmall)
+						return;
+					else if(smallslide.nextElementSibling===idtosmall){
+						fright();
+						return;
+					}
+					else if(smallslide.previousElementSibling===idtosmall){
+						fleft();
+						return;
+					}
+					
+					clearInterval(time);
+					time=setInterval(autoslide,15000);
+					slidesin();
+					autoslide2();
+					var time2=setInterval(autoslide2,600);
+					function autoslide2(){
+						if(x===0){
+							isrunning=true;
+							title.className="slide-title title-out";
+							subtitle.className="slide-sub-title title-out";
+							prevslide.className="slide";
+							nextslide.className="slide";
+							nextslide=idtoslide;
+							nextslide.className="slide nextslide";
+							slide.className="slide inoutslide disp-block";
+						}
+						else if(x===1){
+							slide.className="slide prevslide disp-block";
+						}
+						else if(x===2){
+							slide.className="slide";
+							nextslide.className="slide nextslide disp-block";
+							setTimeout(function(){nextslide.className="slide inoutslide disp-block";},100);
+							smallslide.className="small-slide";
+							idtosmall.className+=" small-selected";
+						}
+						else if(x===3){
+							nextslide.className="slide disp-block";
+							nextsubtitle=nextslide.lastElementChild;
+							nexttitle=nextsubtitle.previousElementSibling;
+							prevslide=nextslide.previousElementSibling;
+							if(prevslide===null)
+								prevslide=nextslide.parentElement.lastElementChild;
+							prevslide.className="slide prevslide";
+							nexttemp=nextslide.nextElementSibling;
+							if(nexttemp===null)
+								nexttemp=nextslide.parentElement.lastElementChild;
+							nexttemp.className="slide nextslide";
+						}
+						else{
+							nexttitle.className="slide-title";
+							nextsubtitle.className="slide-sub-title";
+							isrunning=false;
+							clearInterval(time2);
+							if(!mouseOnSlide)
+								slidesout();
+						}
+						x+=1;
+					}
+				}
+			}
+			var hottrs=document.querySelector(".hot-ticket tbody").firstElementChild;
+			for(var i=0;i&lt;6;i++){
+				var a=[hottrs.firstElementChild.firstElementChild,
+					hottrs.firstElementChild.nextElementSibling.firstElementChild,
+					hottrs.firstElementChild.nextElementSibling.nextElementSibling.firstElementChild,
+					hottrs.firstElementChild.nextElementSibling.nextElementSibling.nextElementSibling.firstElementChild];
+				for(var j=0;j&lt;4;j++)
+					if(a[j].href.substr(a[j].href.search("id=")+3)==="")
+						a[j].href="javascript:void(0)";
+				hottrs=hottrs.nextElementSibling;
+			}
+			
+			function show(index){
+				var groups=document.querySelectorAll(".grouping");
+				if(groups[index].style.height===""){
+					groups[index].style.height="auto";
+					groups[index].nextElementSibling.innerHTML="Daha Az";
+				}
+				else{
+					groups[index].style.height="";					
+					groups[index].nextElementSibling.innerHTML="Daha Fazla";
+				}
+			}
+			
+		</script>
+		<script src="/FRCweb/javascript.js"></script>
+	</h:body>
+</html>
