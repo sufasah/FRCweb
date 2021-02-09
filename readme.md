@@ -5,8 +5,8 @@ FRCweb
 <br>
 
 * Project Team: <br/>
-Fadıl Şahin
-Rahim Gökçeli
+Fadıl Şahin<br>
+Rahim Gökçeli<br>
 Cem Gümüş
 <br>
 
