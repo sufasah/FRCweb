@@ -63,7 +63,7 @@ There is a lot of front-end design issiues like responsive design and bad lookin
 ### Be Careful 
 ![Be Careful](images/6.png)
 
-*If 'restart' is written next to the server in brackets, you need to restart the server otherwise app doesn't works. After that you can run on server again.*
+*If 'restart' is written next to the server in brackets, you need to restart the server otherwise app doesn't work. After that you can run on server again.*
 ### Welcome To Website 
 ![It is on](images/7.png)
 
