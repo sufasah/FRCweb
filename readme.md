@@ -10,7 +10,7 @@ Rahim Gökçeli<br>
 Cem Gümüş
 <br>
 
-* Project Date: <br/>
+* Project Start Date: <br/>
 May 2020
 <br>
 
