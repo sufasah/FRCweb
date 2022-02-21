@@ -19,7 +19,7 @@ Done, 2 week
 <br>
 
 * Project Description: <br/>
-Application is a ticket sales web site for any type of events. People can search for events and buy tickets for events they want to join. In the application, all datas are connected with mysql database datas so all information is got from database. The app contains login system, communication page, search page, slider goes on. All front-end and back-end design and implementation only is done by the team members and any external codes are not used.
+Application is a ticket sales web site for any type of events. People can search for events and buy tickets for events they want to join. In the application, all datas are connected with mysql database datas so all information is got from database. The app contains login system, communication page, search page, slider goes on. All design and implementation is done by the team members and any external codes are not used.
 <br/>
 <br/>
 
